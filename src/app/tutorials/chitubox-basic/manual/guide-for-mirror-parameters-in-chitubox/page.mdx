@@ -1,0 +1,98 @@
+export const metadata = {
+	title: "Guide for Mirror Parameters in CHITUBOX",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-27",
+	description:
+		"Selecting one at random will result in the parts being mirrored directly.",
+	keywords: ["CHITUBOX Basic", "Manual"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/guide-for-mirror-parameters-in-chitubox/cover.jpg",
+		],
+	},
+};
+
+# Guide for Mirror Parameters in CHITUBOX
+
+Under the slicing TAB of CHITUBOX, there is a drop-down option in machine parameter named mirror including LCD_mirror, DLP_normal and Normal. Many users are confused about these three options. And many times they choose one at random, resulting in the parts being mirrored directly. Here, let's take a look at the three mirror parameters in CHITUBOX.
+
+<ImageContainer>
+	<AntdImage
+		alt="mirror settings in CHITUBOX"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/guide-for-mirror-parameters-in-chitubox/mirror-settings.jpg"
+		}
+	/>
+</ImageContainer>
+
+## Mirroring
+
+Before we get to the three mirror parameters in CHITUBOX, we need to figure out what mirroring is. In geometry, a mirror image, as the name implies, is the image of an object with respect to a mirror. In two dimensions, the mirror image of an object (or figure) is the virtual image of the object reflected in a plane mirror. The mirror image is the same size as the original, but not the same, unless the original would have been symmetrically reflective.
+
+The concept of mirror images can also be extended to objects in three dimensions, including their interiors, although these objects are not necessarily transparent.
+
+## Mirror Settings in CHITUBOX
+
+Among the three mirror parameters of CHITUBOX, DLP_normal and Normal can be understood as the same one which do not do any image processing, while LCD_mirror will mirror the image.
+
+Since the light source of the bottom-up uv-curable 3D printer is placed below, the image projected by the projector itself is already processed. In the bottom-up printing process, the image is processed again. The mirrored mirror image will be a normal one which can be understood as "minus minus equals plus". Therefore, DLP does not need to be mirrored.
+
+<ImageContainer>
+	<AntdImage
+		alt="LCD_mirror and DLP_normal/Normal"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/guide-for-mirror-parameters-in-chitubox/lcd_mirror-and-dlp_normal.jpg"
+		}
+	/>
+</ImageContainer>
+
+While the LCD image is a normal one, it will be mirrored during the bottom-up printing process. Therefore, LCD needs to do another mirror processing.
+
+On a same printer, when selecting LCD_mirror and DLP_normal/ Normal respectively, you will notice that the two parts are mirrored in the YZ plane, that is, the plane between the Y axis and the Z axis.
+
+As shown below, the left (LCD_mirror when using LCD 3D printer) and the right (DLP_normal/Normal when using LCD 3D printer) are mirrored on the plane between the Y-axis and z-axis. It looks like that there is a a mirror between the two sets of models.
+
+<ImageContainer>
+	<AntdImage
+		alt="mirror settings test"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/guide-for-mirror-parameters-in-chitubox/mirror-settings-test01.jpg"
+		}
+	/>
+</ImageContainer>
+
+<ImageContainer>
+	<AntdImage
+		alt="mirror settings test"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/guide-for-mirror-parameters-in-chitubox/mirror-settings-test02.jpg"
+		}
+	/>
+</ImageContainer>
+
+For non-axisymmetric parts, miror processing is different from rotation. Rotation can change the direction to make the two sets of parts exactly the same. But after mirror processing, no matter how to rotate, the two sets of parts cannot be exactly the same. As shown below, although both control groups can present the word BEER after rotation, it can be seen that the pointing direction is completely different and there is a significant difference at the letter R.
+
+<ImageContainer>
+	<AntdImage
+		alt="mirror settings test"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/guide-for-mirror-parameters-in-chitubox/mirror-settings-test03.jpg"
+		}
+	/>
+</ImageContainer>
+
+## How to Choose Mirror Parameters in CHITUBOX
+
+In general, LCD 3D printers correspond to the LCD_mirror option, while DLP 3D printers correspond to the DLP_normal/Normal option. However, due to the influence of machine assembly, control board firmware setting and other factors, sometimes this is not always right.
+
+Currently, CHITUBOX's built-in printers already default to the best way for mirror settings. Users do not have to worry about this problem either if your 3D printer is not in the list. As the AB option, it is either A or B. Generally speaking, if the part is mirrored by LCD_mirror, then select DLP_normal/Normal, and vice versa.
+
+<ModelSource
+	items={[
+		[
+			"Wine & Beer Word Illusion",
+			"https://www.thingiverse.com/thing:4029706",
+		],
+		["LOVE WOMEN STENCIL", "https://www.thingiverse.com/thing:2761937"],
+	]}
+/>

@@ -1,0 +1,55 @@
+export const metadata = {
+	title: "How to Add Connection Support on CHITUBOX?",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-27",
+	description:
+		"In this post, we'll show you how to add this type of support structure on CHITUBOX, and its advantages over normal supports.",
+	keywords: ["CHITUBOX Basic", "Manual"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-add-connection-support-on-chitubox/cover.jpg",
+		],
+	},
+};
+
+# How to Add Connection Support on CHITUBOX?
+
+There has been a lot of CHITUBOX user asking how to add connection supports for their models on CHITUBOX. So in this post, we're going to give you explanations of how to add this type of support structure on CHITUBOX, and its advantages over normal supports.
+
+## Steps to add connection supports on CHITUBOX
+
+1. Add a support to where you want to place your connection support, and adjust its position and settings as you like.
+
+1. Click the **Edit Support** button to enter the support editing mode.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="Edit Support button"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-add-connection-support-on-chitubox/edit-support-button.png"
+    		}
+    	/>
+    </ImageContainer>
+
+1. **Double click** the **top part** of the existing support or the **sphere** that connects the top part and the middle part of that support. A support (preview) will branch from that sphere to your mouse pointer. If you click on your model, this branching support will be added from the sphere to that point.
+
+You can do this multiple times to build a tree-like structure. If you're happy with it, press the **ESC key** on your keyboard or **double click** at an empty area to exit branching support editing.
+
+<ImageContainer>
+	<AntdImage
+		alt="add connection supports"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-add-connection-support-on-chitubox/add-connection-supports.gif"
+		}
+	/>
+</ImageContainer>
+
+## The advantages of connection supports
+
+What makes the connection support structure better than the normal one? What if we use several normal supports rather than one branching support, as it looks like they both work?
+
+First, connection supports work better when it comes to saving your material. If you can guarantee that the connection support structure you've added is reliable, then one branching support saves more printing material than multiple normal structures.
+
+Also, to ensure the successful prints of some small models, it is required to use strong support structures. If we add dense normal supports to a small model surface area, then it's likely to experience issues like support overlapping or sticking to each other. But if we use a branching support, and its trunk is strong enough, then we can use the branches to cover the area, and at the same time we lower the risk of support overlapping.
+
+These are how to use the connection support structure on CHITUBOX and why you need it sometimes. If you have any questions about this information, drop us an email at <Link href="mailto:support@chitubox.com">support@chitubox.com</Link>.

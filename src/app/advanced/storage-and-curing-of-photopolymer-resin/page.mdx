@@ -1,0 +1,72 @@
+export const metadata = {
+	title: "Storage And Curing of Photopolymer Resin",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-01",
+	description:
+		"Frankly, resin is not easy to get along with. It has its temper so it requires great care to keep it “alive” and handle it.",
+	keywords: ["Tricks & Tips"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/storage-and-curing-of-photopolymer-resin/cover.png",
+		],
+	},
+};
+
+# Storage And Curing of Photopolymer Resin
+
+As we all know, SLA/DLP/LCD parts are finished because of stereolithography technology. And the most important material for SLA/DLP/LCD 3D printing is UV curable resin/ photosensitive resin. Frankly, resin is not easy to get along with. It has its temper so it requires great care to keep it “alive” and handle it. Do not assume that you know them better. Here are the tips and tricks to help you know more about SLA/DLP/LCD resin.
+
+## How to store SLA/DLP/LCD UV curable resin?
+
+-   Photosensitive resin is composed of polymer monomer and prepolymer, which contains light (UV) initiator. Under the irradiation of UV light with certain wavelength (250-300nm), it will immediately cause polymerization reaction and complete curing. Therefore, photosensitive resin needs to be stored in a sealed container to avoid direct sunlight;
+-   Photosensitive resin has certain fluidity and viscosity. In order to achieve good printing effect, resin needs to ensure certain levelling property and low viscosity. Now the viscosity of resin is generally required to be 600cp·s, which also makes us need to pay attention to the ambient temperature when storing resin, and control the temperature within the range recommended by the manufacturer according to different resins;
+-   At the same time, we also need to reserve a certain amount of air at the top of the container to prevent the resin from gelling, so the resin bottle cannot be completely filled with resin;
+-   The unused resin cannot be poured back into the original resin bottle. In the 3D printing process, the uncured but used resin may contain residual cured resin. In addition, the resin that stays in the resin tank for a long time will deteriorate. So we should pay attention to the difference between used and unused resin. You can use a new resin bottle to save the filtered unused resin. Try not to pour the unused resin back into the original resin bottle to avoid polluting the new resin;
+-   Photosensitive resin has certain toxicity and heavy odor. Do not store resin and food together. Similarly, because the resin is toxic, the waste resin cannot be discarded at will and needs to be treated uniformly;
+
+<ImageContainer>
+	<AntdImage
+		alt="resin"
+		src={
+			"/en/academy/images/docs/advanced/storage-and-curing-of-photopolymer-resin/resin.jpg"
+		}
+	/>
+</ImageContainer>
+
+## Why is Post-Curing needed for SLA/DLP/LCD parts?
+
+Though the parts have reached their final form, you can easily detect that the surface of the part is still tacky and relatively soft. They are not fully reacted and cured out of the printer so post-curing completes any unfinished reactions. This is much of the reason for the changes in aesthetic and mechanical properties.
+
+Material properties, such as modulus, strength and stability will be improved by UV post-curing. The surface of post-cured parts are tougher and drier which makes them easier to sand and paint.
+
+## What will happen with over-curing?
+
+Material will degrade due to UV irradiation. Most organic materials are damaged by UV exposure. With extreme levels of UV exposure, the part will degrade and this is why ‘over-curing’ will cause brittleness. Placing a part outside is generally not nearly enough to cause any notable amount of degradation. But curing a part over night in a high intensity UV chamber might be enough to damage the material. This is not unique to resin and would occur in most organic materials.
+
+## The Characteristics of Curing Under Water
+
+There are many benefits to curing underwater, such as better heat dissipation and diffuse scattering. If you cure in a container filled with water, you don't need too long exposure time. In addition to drying, there are no other obvious "drawbacks" to curing underwater.
+
+<ImageContainer>
+	<AntdImage
+		alt="cure underwater"
+		src={
+			"/en/academy/images/docs/advanced/storage-and-curing-of-photopolymer-resin/cure-underwater.png"
+		}
+	/>
+</ImageContainer>
+
+## Is post-curing with sunlight useful?
+
+If you don't have a UV chamber, You can submerge the print in a clear container filled with water. Then place the container under direct sunlight. Of course, the exposure time will be much longer than under direct UV lamp. If the print still feels uncured or sticky, leave the print and the container in the sun for some more time.
+
+<ImageContainer>
+	<AntdImage
+		alt="cure with sunlight"
+		src={
+			"/en/academy/images/docs/advanced/storage-and-curing-of-photopolymer-resin/cure-with-sunlight.jpg"
+		}
+	/>
+</ImageContainer>
+
+The above are the tips and tricks about SLA/DLP/LCD resin in 3D printing.

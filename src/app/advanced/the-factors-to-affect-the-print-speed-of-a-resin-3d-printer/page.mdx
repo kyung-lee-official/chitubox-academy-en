@@ -1,0 +1,94 @@
+export const metadata = {
+	title: "The Factors to Affect the Print Speed of A Resin (SLA/DLP/LCD) 3D Printer",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-01",
+	description:
+		"Right speed is particularly beneficial to boost print success and improve manufacturing efficiency.",
+	keywords: ["Knowledge"],
+	openGraph: {
+		images: [
+		"/en/academy/images/docs/advanced/the-factors-to-affect-the-print-speed-of-a-resin-3d-printer/cover.png",
+		],
+	},
+};
+
+# The Factors to Affect the Print Speed of A Resin (SLA/DLP/LCD) 3D Printer
+
+There are different factors that can directly affect how fast a resin 3D printer can complete a 3D model. Choosing the right speed for your print is particularly beneficial to boost your print success and improve manufacturing efficiency. But controling the print speed can be quite a challenge, especially if you are new to 3D printing. The first thing you have to know is the factors to affect the print speed of a resin (SLA/DLP/LCD) 3D printer, they can be roughly divided into the following categories.
+
+## Print Technology
+
+The benefit that both DLP and LCD share, when compared to SLA, is print speed. The technical principle of SLA is to use a laser for point exposure, and to realize stacking printing by planning the laser movement path. The "surface" needs to be formed before the "body" is formed. The technical principle of DLP and LCD is to use a light source for surface exposure, by planning the model into a layer-by-layer sliced surface for stacking printing, it can be directly stacked to form a "body". Therefore, the main reason why SLA's line exposure is much slower than DLP and LCD printing speed is the molding speed. For the same model, SLA needs to be disassembled into a series of line paths for exposure, while DLP and LCD only need to be disassembled into a layer-by-layer surface for exposure.
+
+<ImageContainer footnote={"SLA"}>
+	<AntdImage
+		alt="SLA"
+		src={
+			"/en/academy/images/docs/advanced/the-factors-to-affect-the-print-speed-of-a-resin-3d-printer/sla.png"
+		}
+	/>
+</ImageContainer>
+
+<ImageContainer footnote={"DLP"}>
+	<AntdImage
+		alt="DLP"
+		src={
+			"/en/academy/images/docs/advanced/the-factors-to-affect-the-print-speed-of-a-resin-3d-printer/dlp.png"
+		}
+	/>
+</ImageContainer>
+
+<ImageContainer footnote={"LCD"}>
+	<AntdImage
+		alt="LCD"
+		src={
+			"/en/academy/images/docs/advanced/the-factors-to-affect-the-print-speed-of-a-resin-3d-printer/lcd.png"
+		}
+	/>
+</ImageContainer>
+
+DLP/ LCD 3D printers offer speed that often comes at a cost of precision. SLA, in turn, is more precise but relatively slow.
+
+## 3D Printer
+
+The pre-fixed speed of the 3D printer is something which holds utmost importance since the 3D printer would never be able to achieve the speed which is above that the one defined before.
+
+Another speed factor in resin 3D printing is how quickly the system can move to the next layer. In some setups, the lighting passes through the bottom of a transparent resin tank, where the newly-solidified resin sometimes adheres between FEP and build plate, requiring a tedious “peel” process to free it up and move to the next layer. However, some manufacturers have developed systems to instantly free the layer making printing much speedier. Other approaches actually eliminate this issue by solidifying the top of the resin surface instead of the bottom.
+
+## Light Power
+
+Printing with resins involves the use of a light source to cure sensitive liquid resins to create a 3D model. The three major resin printing technologies can be differentiated by the light source used for curing.
+
+Print speed is determined by how many powers your light source have. One might be able to increase the print speed with increased light source power, but this strategy will have to pay the price for increased speed, with additional power requirements.
+
+## layer Thickness
+
+Layer thickness affects both the speed and quality of each print. The number of layers required to create an object determines the printing speed and thus the printing time required. The lower the layer thickness, the longer it takes to make a 3D printed object of a given height. A lower layer thickness means the printer has to print as many layers to achieve the same total height, resulting in a much slower print. But relatively, the lower the layer thickness, the better the print quality will be.
+
+## Material
+
+The speed of 3D printers would also depend on the kind of material used to print the object. Different combinations of the monomers, oligomers, photoinitiators, and various other additives that comprise a resin result in different material properties and cure time.
+
+<ImageContainer>
+	<AntdImage
+		alt="material combination"
+		src={
+			"/en/academy/images/docs/advanced/the-factors-to-affect-the-print-speed-of-a-resin-3d-printer/material-combination.gif"
+		}
+	/>
+</ImageContainer>
+
+## Model
+
+If the resulting model is a hollow one with less intricate details, it would generally get printed faster. Orienting the print correctly will also affect the print time. Generally a lying print will save more time compared to the same upright one when printing.
+
+<ImageContainer>
+	<AntdImage
+		alt="different orientations"
+		src={
+			"/en/academy/images/docs/advanced/the-factors-to-affect-the-print-speed-of-a-resin-3d-printer/different-orientations.png"
+		}
+	/>
+</ImageContainer>
+
+These are some of the major factors which affect the printing speed of a 3D printer. The factors affect the printing speed in the additive manufacturing process can be more complex than that.Increasing your 3D printing speed has an effect on your final product. It's a matter of priorities. Designers need to weigh the pros and cons and make the decision accordingly.

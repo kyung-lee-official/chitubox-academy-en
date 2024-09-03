@@ -1,0 +1,121 @@
+export const metadata = {
+	title: "A Brief Overview of Thermal Stress in Resin 3D Printing",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2023-10-31",
+	description: "Introduction to thermal stress, its effects and solutions",
+	keywords: ['Knowledge'],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/a-brief-overview-of-thermal-stress-in-resin-3d-printing/cover.png",
+		],
+	},
+};
+
+# A Brief Overview of Thermal Stress in Resin 3D Printing
+
+## Thermal Stress Basic Concepts
+
+Thermal stresses are stresses that arise when the thermal deformation of an object caused by a change in temperature is restrained. However, a change in temperature alone does not necessarily produce stresses within the object, but only when the expansion or contraction caused by the change in temperature is restrained, will produce stresses within the object. This kind of no external force but due to the temperature change caused by thermal deformation is constrained and produced by the stress, known as thermal stress or temperature stress.
+
+With more simple words to describe that is, under normal circumstances the material is subjected to temperature changes. Most of them will undergo some deformation due to thermal expansion and contraction and other principles. And if this deformation process is constrained, thermal stresses will be generated.
+
+Let's consider a metal rod with a diameter of $d$ and length of $l$ at the initial temperature of $t_0$. If we heat it evenly to a temperature of $t_1$, the rod will expand to:
+
+Length change: $$\Delta l = \alpha (t_1 - t_0)l$$
+
+Length strain: $$\epsilon_l = \frac{\Delta l}{l} = \alpha (t_1 - t_0)$$
+
+Diameter change: $$\Delta d = \alpha (t_1 - t_0)d$$
+
+Diameter strain: $$\epsilon_d = \frac{\Delta d}{d} = \alpha (t_1 - t_0)$$
+
+That is, if the temperature of the rod is increased from $t_0$ to $t_1$, the strain of the rod will be:
+
+$$\epsilon = \alpha (t_1 - t_0) = \alpha \Delta t$$
+
+Where $\alpha$ is the coefficient of thermal expansion of a certain material, it varies with the material and temperature, if the temperature is constant, $\alpha$ is a constant.
+
+For an isotropic cube, uniform heating or cooling produces free expansion or contraction, with the same degree of elongation or contraction in the three directions of length, width and height, but no shear deformation, only longitudinal deformation.
+
+If a metal bar expands freely and is not constrained, then no thermal stresses are generated. And put it between two rigid body wall, fixed ends, then in the rod heat task rises to $t_1$, because by the rigid body wall to prevent, it can not expand, and will produce compression thermal stress. Thus although there is no external force acting, the thermal deformation is externally constrained and stresses are also generated within the object.
+
+In addition, within the same object, if the temperature is not uniformly distributed, although the object is not subject to external constraints, but because of the different temperatures in each place, each part can not be free to expand and contract due to the influence of neighboring parts with different temperatures, will also produce thermal stresses within.
+
+Also, a component consists of a number of parts made of different materials that are combined, even if subjected to the same heating or cooling, but due to the various parts of the expansion coefficient is different, or the expansion of different ways, resulting in the parts of each other constraints, can not be free to expansion and contraction, thus generating different thermal stress.
+
+Thus, to summarize, the stresses arising from a change in the temperature of an object due to mutual constraints between it and other objects that are not free to expand or contract, or between the internal parts of an object, become thermal stresses. This is a non-external force caused by the stress, the root cause is the temperature change and constraint. Constraints can be summarized in three forms:
+
+-   External deformation constraints: the object is affected by external conditions, can not be free to expand and contract, such as fixed at both ends:
+-   Internal deformation constraints: uneven temperature distribution inside the object, such as the existence of temperature differences between the object inside and outside, top and bottom, resulting in parts warping;
+-   Mutual deformation constraints: different parts are combined together with different coefficients of thermal expansion, which affect each other.
+
+Thermal stresses lead to an uneven distribution of stresses inside and on the surface of an object, which may cause deformation or damage. The magnitude and direction of thermal stresses depend on factors such as the material, shape and size of the object, the degree and rate of temperature change, and the manner in which it is cooled or heated.
+
+## The Basic Equations Of Thermal Elasticity
+
+Take a tiny parallel hexahedron with sides parallel to the coordinate axis and side lengths of $d_x, d_y, d_z$ , as shown in the figure:
+
+<ImageContainer>
+	<AntdImage
+		alt="Top-down 3D printing and Bottom-up 3D printing"
+		src={
+			"/en/academy/images/docs/advanced/a-brief-overview-of-thermal-stress-in-resin-3d-printing/basic-equations-of-thermal-elasticity.png"
+		}
+		width={450}
+	/>
+</ImageContainer>
+
+The stress component acting on the microelement surface:
+
+$$\sigma_{xx}, \sigma_{yy}, \sigma_{zz}, \tau_{xy}, \tau_{xz}, \tau_{yx}, \tau_{zx}, \tau_{zy}, \tau_{zz}$$
+
+By the shear stress reciprocity theorem:
+
+$$\tau_{xy} = \tau_{yz}, \tau_{yz} = \tau_{zy}, \tau_{xz} = \tau_{zx}$$
+
+Stresses and strains generated by external forces are calculated using the principles of mechanics of materials and elasticity.
+Thermal stresses and strains thermal strains generated by temperature changes are calculated using the principles of thermoelastic mechanics, and the two are superimposed.
+
+## Thermal Stress in SLA 3D Printing
+
+With the rapid development of industrial technology, the problem of thermal stress and deformation caused by uneven temperature or inconsistent coefficient of thermal expansion has become a major problem in certain projects, which is mainly manifested in:
+
+-   Thermal stresses caused by high temperature during operation of boilers and chemical machinery;
+-   Processing and technology process due to high temperature - cooling thermal stress;
+-   Temperature deformation and thermal stress caused by air temperature or solar radiation in large-scale water conservancy projects and civil engineering;
+-   Effect of temperature deformation on precise instruments;
+-   Thermal stresses caused by high temperatures in automobiles and airplanes;
+-   Thermally induced vibrations of satellites as they traverse the sunlit and shadowed regions;
+-   Thermal stress generated by inconsistent material properties due to device heating;
+
+In the light-curing 3D printing process, the liquid photosensitive resin is excited by ultraviolet light and cured to a solid by a cross-linking reaction. However, this UV-induced chemical reaction is also accompanied by the release of energy, which can lead to the warming of localized areas of the material. The uneven distribution of temperature changes generated during the curing process causes internal deformation constraints in the printed part, in which case the material shrinks or expands, which in turn generates thermal stresses.
+The process of generating thermal stress is as follows:
+
+-   The photosensitive resin is excited by ultraviolet light and begins the curing process;
+-   The chemical reaction inside the area generates heat, causing the temperature of the localized area to rise;
+-   The material in the high temperature region begins to shrink, while the material in the surrounding low temperature region is relatively stable;
+-   Differences in contraction or expansion between different temperature zones result in stress concentrations.
+
+## Reducing the Effects of Thermal Stress
+
+This generation of thermal stresses may lead to problems such as deformation, cracking and damage to the print. In life thermal deformations and thermal stresses may adversely affect the system and in general there are several measures in principle:
+
+-   Analyze whether it is deformation or stress that needs to be eliminated, e.g., temperature joints in civil engineering are use to mitigate thermal stresses by relaxing constraints, while in some other circumstances, strengthening constraints and structural stiffness reduces thermal deformation;
+-   Reducing temperature loads by measures such as thermal insulation and heat retention, while taking care to minimize the inhomogeneity of the temperature distribution;
+-   Matching the coefficients of thermal expansion of different materials to avoid excessive differences in the coefficients of thermal expansion of neighboring materials;
+
+<ImageContainer>
+	<AntdImage
+		alt="Top-down 3D printing and Bottom-up 3D printing"
+		src={
+			"/en/academy/images/docs/advanced/a-brief-overview-of-thermal-stress-in-resin-3d-printing/coefficient-of-thermal-expansion-of-materials.png"
+		}
+	/>
+</ImageContainer>
+
+In order to reduce the impact of thermal stress in light-curing 3D printing, the following methods can be taken:
+
+-   Controlling the temperature during the printing process to minimize the range of temperature variations and thus mitigate thermal stress;
+-   Thermal deformation can be reduced by using materials with lower shrinkage or greater stiffness after curing, such as low-shrinkage resins or nylon;
+-   Optimizing the design based on the structure of the model to reduce areas of stress concentration;
+-   Increase support structures to disperse the stresses.

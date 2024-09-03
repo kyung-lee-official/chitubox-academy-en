@@ -1,0 +1,266 @@
+import { Square } from "@/docComponents/obtainTheParametersOfPhotosensitiveResin/Square";
+import { ConvexCylinder } from "@/docComponents/obtainTheParametersOfPhotosensitiveResin/ConvexCylinder";
+import { ConcaveCylinder } from "@/docComponents/obtainTheParametersOfPhotosensitiveResin/ConcaveCylinder";
+import { ToleranceOfFit } from "@/docComponents/obtainTheParametersOfPhotosensitiveResin/ToleranceOfFit";
+
+export const metadata = {
+	title: "Obtain the Parameters of Photosensitive Resin in SLA/DLP/LCD 3D Printing ",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-01",
+	description:
+		"When using a new photosensitive resin, knowing its suitable 3D printing parameters is a priority before printing.",
+	keywords: ["Tricks & Tips"],
+	openGraph: {
+		images: [
+		"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/cover.png",
+		],
+	},
+};
+
+# Obtain the Parameters of Photosensitive Resin in SLA/DLP/LCD 3D Printing
+
+As the main consumable material of stereolithography technology (SLA/DLP/LCD), photosensitive resin has been widely used in many fields.There are many different categories of photosensitive resin materials which are suitable for different fields, and the subdivided photosensitive resin materials show different properties according to different formulations or production methods. Therefore, for different photosensitive resins, **there is no fixed parameter that can fit all**. When using a new photosensitive resin, knowing its suitable 3D printing parameters is a priority before printing.
+
+Obtaining the parameters of a new photosensitive resin does not mean that you need to go about several tasks at a time. **Asking the manufacturer or purchasing channel for relevant parameters can save most of your testing time**. The more detailed the parameters including exposure time, lifting/retract speed, and even viscosity, shrinkage, tensile strength, density, the more convenient it will be. In the following content, wewill describe how to test the exposure value of a new photosensitive resin.
+
+Few manufacturers or purchasing channels will directly tell you a specific exposure value, like 8 seconds. If so, you can start testing with this value. Most manufacturers or purchasing channels just tell you a range. For example, the exposure time is 3-15 seconds, the bottom exposure time is 20-80 seconds. The best exposure time is subject to the actual printing effect.
+
+At this time, it is necessary to do several actual printings to test the resin exposure value. Of course, before the test, there is another thing to be clear: **light wattage/lumens of the 3D printer**.The light source intensity of different printers is different which has a great impact on the exposure. Meanwhile, it is necessary to know the actual light source output of the printer so as to adjust the exposure time.
+
+Both 3 and 15 seconds are critical exposure values that are likely to result in underexposure or overexposure. So **it's preferable to starting the test with overexposure**. How to verify the exposure value provided by the manufacturer or purchasing channel? Here you need to select the right model which should meet the following test points.
+
+## Fit Tolerance
+
+Fit tolerance refers to the sum of tolerance of holes and shafts that make up the fit. It is the amount of variation that allows gaps or interference. The size and location of tolerance zone of holes and shafts constitute the fit tolerance. The size of fit tolerance indicates the fit accuracy of holes and shafts. The size and position of tolerance zone of holes and shafts indicate the fit precision and properties.
+
+-   Size of fit tolerance = size of tolerance zone
+-   Size and position of fit tolerance zone = fit property
+
+## The right size of XYZ
+
+X + Y + Z is three dimensional space which tells us the volume of the object. They are also known as length, width and height.
+
+## Perpendicularity and Roundness
+
+Perpendicularity is position tolerance which is expressed in symbol ⊥. Perpendicularity evaluates the plumbness between lines, planes, or lines and planes. One of the straight lines or planes can be the evaluation benchmark, and the straight line can be the straight part of the sample or the straight motion track, while the plane can be the plane part of the sample or the plane formed by the motion track.
+
+<ImageContainer>
+	<AntdImage
+		alt="perpendicularity and roundness"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/perpendicularity-and-roundness.png"
+		}
+	/>
+</ImageContainer>
+
+Roundness means that the circumference of any normal section of a cylinder or cone must lie between two concentric circles with a radius difference of a given shape tolerance.
+
+<ImageContainer>
+	<AntdImage
+		alt="structure with holes and shafts"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/structure-with-holes-and-shafts.png"
+		}
+	/>
+</ImageContainer>
+
+In brief, the model we need is a **structure with holes and shafts which can verify whether the right angle is in a vertical state and whether the roundness has no deformation and shares a central point**.
+
+## Test
+
+We selected the following three models to test the resin exposure value.
+
+### Model Data
+
+|                  | Outer diameter | Inner diameter | Thickness |
+| ---------------- | -------------- | -------------- | --------- |
+| Convex Cylinder  | 10mm           | 5mm            | 5mm       |
+| Concave Cylinder | 10mm           | 5mm            | 5mm       |
+
+|      | X    | Y    | Z   |
+| ---- | ---- | ---- | --- |
+| Cube | 10mm | 10mm | 5mm |
+
+### Test Process Description
+
+All models have been solidified for the second time, and there may be some error in manual measurement. The data is only for reference and intended to illustrate the method to verify the exposure value of resin.
+
+### Test 1: Exposure Time 15s
+
+|                 | Outer diameter | Inner diameter | Thickness |
+| --------------- | -------------- | -------------- | --------- |
+| Convex Cylinder | 9.91mm         | 4.82mm         | 4.98mm    |
+
+<ImageContainer>
+	<AntdImage
+		alt="test 1 data"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-1-data-01.jpg"
+		}
+	/>
+</ImageContainer>
+
+|                  | Outer diameter | Inner diameter | Thickness |
+| ---------------- | -------------- | -------------- | --------- |
+| Concave Cylinder | 9.93mm         | 4.80mm         | 4.98mm    |
+
+<ImageContainer>
+	<AntdImage
+		alt="test 1 data"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-1-data-02.jpg"
+		}
+	/>
+</ImageContainer>
+
+|      | X       | Y       | Z      |
+| ---- | ------- | ------- | ------ |
+| Cube | 10.02mm | 10.02mm | 5.01mm |
+
+<ImageContainer>
+	<AntdImage
+		alt="test 1 data"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-1-data-03.jpg"
+		}
+	/>
+</ImageContainer>
+
+For the first test, the data error is acceptable, especially the square data error, and **the hole and shaft of cylinder are in tight fit (-0.02mm)**.
+
+<ImageContainer>
+	<AntdImage
+		alt="test 1 print results"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-1-print-results.jpg"
+		}
+	/>
+</ImageContainer>
+
+### Test 2: Exposure Time 10s
+
+|                 | Outer diameter | Inner diameter | Thickness |
+| --------------- | -------------- | -------------- | --------- |
+| Convex Cylinder | 9.77mm         | 4.66mm         | 4.92mm    |
+
+<ImageContainer>
+	<AntdImage
+		alt="test 2 data"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-2-data-01.jpg"
+		}
+	/>
+</ImageContainer>
+
+|                  | Outer diameter | Inner diameter | Thickness |
+| ---------------- | -------------- | -------------- | --------- |
+| Concave Cylinder | 9.68mm         | 5.04mm         | 4.90mm    |
+
+<ImageContainer>
+	<AntdImage
+		alt="test 2 data"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-2-data-02.jpg"
+		}
+	/>
+</ImageContainer>
+
+|      | X      | Y      | Z      |
+| ---- | ------ | ------ | ------ |
+| Cube | 9.77mm | 9.75mm | 4.97mm |
+
+<ImageContainer>
+	<AntdImage
+		alt="test 2 data"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-2-data-03.jpg"
+		}
+	/>
+</ImageContainer>
+
+Obviously, the exposure time of the second test was insufficient. As a result, the inner diameter of the Convex cylinder decreased, while that of the concave cylinder expanded outwards due to insufficient curing. And the **hole and shaft of the cylinder are in loose fit (0.38mm)**.
+
+<ImageContainer>
+	<AntdImage
+		alt="test 2 print results"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-2-print-results.jpg"
+		}
+	/>
+</ImageContainer>
+
+In order to verify whether overexposure will occur if the exposure exceeds 15s, we conduct the third test with the exposure time of 17s.
+
+### Test 3: Exposure Time 17s
+
+|                 | Outer diameter | Inner diameter | Thickness |
+| --------------- | -------------- | -------------- | --------- |
+| Convex Cylinder | 9.88mm         | 4.85mm         | 4.90mm    |
+
+<ImageContainer>
+	<AntdImage
+		alt="test 3 data"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-3-data-01.jpg"
+		}
+	/>
+</ImageContainer>
+
+|                  | Outer diameter | Inner diameter | Thickness |
+| ---------------- | -------------- | -------------- | --------- |
+| Concave Cylinder | 9.91mm         | 4.66mm         | 4.91mm    |
+
+<ImageContainer>
+	<AntdImage
+		alt="test 3 data"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-3-data-02.jpg"
+		}
+	/>
+</ImageContainer>
+
+|      | X      | Y      | Z      |
+| ---- | ------ | ------ | ------ |
+| Cube | 9.89mm | 9.88mm | 4.95mm |
+
+<ImageContainer>
+	<AntdImage
+		alt="test 3 data"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-3-data-03.jpg"
+		}
+	/>
+</ImageContainer>
+
+When exposure time increases to 17s, it begins to overexpose. **The loose fit of hole and shaft becomes more serious (-0.19mm)**, resulting in that convex cylinder can not be easily pressed into the concave cylinder.
+
+<ImageContainer>
+	<AntdImage
+		alt="test 3 print results"
+		src={
+			"/en/academy/images/docs/advanced/obtain-the-parameters-of-photosensitive-resin-in-sladlplcd-3d-printing/test-3-print-results.jpg"
+		}
+	/>
+</ImageContainer>
+
+## Conclusion
+
+<Square />
+
+From the XY data of the square, it can be seen that the blue X line and the red Y line of the three exposure times basically overlap, and the values are basically the same.The green Z line is basically horizontal, indicating that the Z size deviation of the three exposures is not too much.
+
+<ConvexCylinder />
+
+From the data of convex cylinder, the exposure time has little influence on the thickness. But it is obvious that the exposure time of 10s is insufficient, resulting in a obvious decrease in the inner and outer diameters compared with the other two exposure times.
+
+<ConcaveCylinder />
+
+From the data of concave cylinder, the exposure time also has little influence on the thickness. But due to the insufficient exposure time, the concave part is not solidified enough, resulting in the outward expansion of the inner diameter. On the contrary, excessive exposure leads to the continuous solidification of the concave part, resulting in the contraction of the inner diameter.
+
+<ToleranceOfFit />
+
+In terms of the fit tolerance, whether the tight fit of 15s exposure time (-0.02mm) or 17s (-0.19mm), the deviation is acceptable. But it should be disposed according to practical needs.
+
+In theory, the exposure time of 15s and 17s for are both acceptable. But 10s with a large tolerance (0.38mm) is dissatisfied. Maybe 14s should be better, but we just expound the method here, not test it.In general, to test the exposure value of a new photosensitive resin, the first step is to ask the manufacturer or the purchasing channel for the relevant parameters. Then start with a relative over-exposure time, and the final step is to verify the tolerance of fit and the correct size of the XYZ with the matching tolerance cylinder model and the square.
+
+In general, to test the exposure value of a new photosensitive resin, the first step is to ask the manufacturer or the purchasing channel for the relevant parameters. Then start with a relative over-exposure time, and the final step is to verify the tolerance of fit and the correct size of the XYZ with the matching tolerance cylinder model and the square.

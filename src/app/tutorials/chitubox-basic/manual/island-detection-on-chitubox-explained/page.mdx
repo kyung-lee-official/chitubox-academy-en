@@ -1,0 +1,156 @@
+export const metadata = {
+	title: "Island Detection on CHITUBOX Explained.",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-27",
+	description:
+		"This post is an explanation of the island detection feature on CHITUBOX, including how CHITUBOX defines islands, how to use this feature, and what you need to do when there are islands detected.",
+	keywords: ["CHITUBOX Basic", "Manual"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/cover.jpg",
+		],
+	},
+};
+
+# Island Detection on CHITUBOX Explained.
+
+Since version V1.8.0 Beta, we have added the island detection feature in CHITUBOX. It can help you quickly identify islands and overhangs in a sliced model, lowering the risk of print failures. In this post, we will give you an explanation of this powerful tool, including how CHITUBOX defines islands, how to use this feature, and what you need to do when there are islands detected.
+
+## How CHITUBOX defines islands
+
+In CHITUBOX, the island detection feature can be used after you slice the model. The "islands" it detects are the pixels in every layer of the sliced model that has no model parts or supports connected to it, regardless of their area.
+
+The following image illustrates the definition above well. The red pixels (in layer 446) are islands because they touch nothing in the layer right above (445).
+
+<ImageContainer>
+	<AntdImage
+		alt="detected islands in layer 446"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/detected-islands-in-layer-446.gif"
+		}
+	/>
+</ImageContainer>
+
+So, the islands include any isolated pixels and unsupported overhangs.
+
+These are islands:
+
+<ImageContainer>
+	<AntdImage
+		alt="islands"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/islands.png"
+		}
+	/>
+</ImageContainer>
+
+These will also be detected as islands:
+
+<ImageContainer>
+	<AntdImage
+		alt="detected as islands"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/detected-as-islands.png"
+		}
+	/>
+</ImageContainer>
+
+## How to use the island detection feature
+
+Island detection on CHITUBOX is easy to use. The following is a detailed explanation:
+
+1. To detect islands, simply click the Detect Islands button at upper left on the slicing preview screen. Then CHITUBOX will start the detection process.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="detect islands button"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/detect-islands-button.png"
+    		}
+    	/>
+    </ImageContainer>
+
+1. When the detection finishes, you can view the number of islands detected in the lower right corner.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="islands amount"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/islands-amount.png"
+    		}
+    	/>
+    </ImageContainer>
+
+1. When the detection finishes, the Delete Island button will be enabled at the same time. This button enables you to delete islands of the current layer or all layers. You can choose which option you like using the arrow button in the lower right corner of the Delete Island button.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="delete island button"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/delete-island-button.png"
+    		}
+    	/>
+    </ImageContainer>
+
+1. To know what layers contain islands, simply click the Show Island Layers button.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="show islands layers button"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/show-islands-layers-button.png"
+    		}
+    	/>
+    </ImageContainer>
+
+    There will be red lines next to the preview slider showing what layers have islands. You can drag the slider to move manually to those layers.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="preview slider"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/preview-slider.png"
+    		}
+    	/>
+    </ImageContainer>
+
+    Or, with the Show Island Layers button pressed, you can click the arrows next to the layer number to go to the next or last island layer.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="up and down arrows"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/up-and-down-arrows.png"
+    		}
+    	/>
+    </ImageContainer>
+
+1. Once you are on a layer with islands, the islands will be marked with a red color.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="islands are highlighted in red"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/island-detection-on-chitubox-explained/islands-are-highlighted-in-red.png"
+    		}
+    	/>
+    </ImageContainer>
+
+<Admonition type="note">
+	In the version of V1.8.0 Beta, no matter how many times you click the Detect
+	Islands button, the detection always runs based on the original model and
+	data. That is to say when you have removed the islands, and then click the
+	Detect Islands button, the model will restore to the original state, with
+	the removed islands recovered and detected again. This issue is fixed in
+	later versions.
+</Admonition>
+
+## What to do after there are island detected
+
+What we recommend is that, when that happens, DO NOT remove all the islands immediately, as this will probably corrupt your model. The better way is to check layer by layer and see which type the islands belong to.
+
+If the islands detected are isolated pixels, they are mistakes of the model and have little effect on the model itself if deleted. But if they are unsupported overhangs, then removing these islands will corrupt the model.
+
+So if there are isolated pixels detected, then it is fine to just click the Delete Island button to remove all of them. But if you find some overhangs, you should go back and edit your support. When you make sure your supports are properly added, then slice the model and run island detection again.
+
+Hopefully, this post has helped you have a better understanding of how island detection works in CHITUBOX. If you are experiencing any issues with this feature, feel free to contact us at <Link href="mailto:support@chitubox.com">support@chitubox.com</Link>.

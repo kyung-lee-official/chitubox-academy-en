@@ -1,0 +1,158 @@
+import { TrueStressStrainCurve } from "@/docComponents/stressAndStrainPropertiesOf3dPrintingResin/TrueStressStrainCurve";
+import { TrueAndEngineeringCurve } from "@/docComponents/stressAndStrainPropertiesOf3dPrintingResin/TrueAndEngineeringCurve";
+import { BritleAndDuctile } from "@/docComponents/stressAndStrainPropertiesOf3dPrintingResin/BritleAndDuctile";
+import { MetalStressStrain } from "@/docComponents/stressAndStrainPropertiesOf3dPrintingResin/MetalStressStrain";
+import { StandardAndToughResin } from "@/docComponents/stressAndStrainPropertiesOf3dPrintingResin/StandardAndToughResin";
+import { OtherMaterialCurve } from "@/docComponents/stressAndStrainPropertiesOf3dPrintingResin/OtherMaterialCurve";
+import { ProportionalityLimit } from "@/docComponents/stressAndStrainPropertiesOf3dPrintingResin/ProportionalityLimit";
+import { Limits } from "@/docComponents/stressAndStrainPropertiesOf3dPrintingResin/Limits";
+import { DocsColumnContainer, DocsColumn } from "@/docComponents/docsColumn/DocsColumn";
+
+export const metadata = {
+	title: "Stress and Strain Properties of 3D Printing Resin",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-01",
+	description:
+		"Knowledge of the material properties coupled with the correct exposure times is an important prerequisite for selecting the right raw materials.",
+	keywords: ["Tricks & Tips"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/stress-and-strain-properties-of-3d-printing-resin/cover.png",
+		],
+	},
+};
+
+# Stress and Strain Properties of 3D Printing Resin
+
+## Stress-Strain Curve
+
+Before understanding the stress characteristics of photosensitive resin, let's first learn about the stress-strain curve for materials. The stress-strain obtained from tensile experiments typically refers to engineering stress and engineering strain, calculated using the initial cross-sectional area and length, which are the undeformed initial cross-sectional area and length. In contrast, there are also true stress and true strain, calculated using the cross-sectional area and length after deformation.
+
+In cases where stress is below the proportional limit, stress $\sigma$ is directly proportional to strain $\epsilon$, meaning $\sigma = E\epsilon$ , E is a constant known as the Elastic Modulus or Young's Modulus. It represents the ratio of normal stress to normal strain. The unit of Elastic Modulus is the same as that of stress. The definition of the Shear Modulus is similar, representing the ratio of shear stress to shear strain.
+
+In principle, polymer materials exhibit viscoelastic behavior. When stress is removed, a portion of the work is used for frictional effects and converted into thermal energy. This process can be represented by a stress-strain curve. Metal materials, on the other hand, display elastic deformation characteristics. If loaded beyond their yield strength, the material undergoes plastic deformation until failure. This process can also be illustrated using a stress-strain curve. Generally, this process is divided into four stages: the elastic stage, the yielding stage, the strain hardening stage, and the localized deformation stage. Here, we will use the stress-strain curve for metals as an example for explanation. A metal's stress-strain curve is typically divided into four stages: the elastic stage, the yielding stage, the strain hardening stage, and the necking stage.
+
+<Limits />
+
+The curve's horizontal axis represents strain, and the vertical axis represents the applied stress. The shape of the curve reflects various deformation processes that a material undergoes under the influence of external forces, including brittleness, plasticity, yielding, and fracture. This stress-strain curve is commonly referred to as the engineering stress-strain curve. It has a similar appearance to a load-deformation curve but with different coordinates.
+
+## Overview of stress characteristics stages
+
+### Stage 1: Elastic
+
+Characteristics: When stress is below $\sigma_{pl}$, stress is directly proportional to the strain in the sample. When the stress is removed, the deformation disappears, indicating that the sample is in the elastic deformation stage.
+
+Key Concepts: $\sigma_{el}$ is the material's elastic limit, representing the maximum stress at which a material exhibits purely elastic deformation.
+
+In the elastic stage, there is a special linear segment "oa" where $\sigma$ and $\epsilon$ have a linear relationship. This is called the proportional stage, also known as the linear elastic stage, and it follows Hooke's Law, $\sigma = E\epsilon$.
+
+$E$ is known as the material's elastic modulus. For steel, $E = 200 \text{GPa}$.
+
+The proportional limit $\sigma_{pl}$ is the maximum stress at which stress and strain obey Hooke's law.
+
+<Admonition type="tip">
+	* Only when the working stress $\frac{F}{A} < \sigma_{el}$ does $\sigma$ and $\epsilon$ obey Hooke's Law.
+	* When $\sigma_{pl} < \sigma < \sigma_{el}$, the linear portion of Hooke's Law (segment "ab") no longer applies, but the deformation remains elastic.
+	* Because the difference between $\sigma_{pl}$ and $\sigma_{el}$ is not significant in engineering, they are not distinguished.
+</Admonition>
+
+### Stage 2: Strain Hardening
+
+Characteristics: When stress exceeds $\sigma_{pl}$ and reaches a certain value, the linear relationship between stress and strain is disrupted. Strain increases significantly while stress first decreases, then undergoes minor fluctuations, creating small zigzag segments close to a horizontal line on the curve. If unloaded, the sample's deformation only partially recovers, retaining some residual deformation, indicating plastic deformation. This signifies that the deformation of the steel enters the plastic deformation stage.
+
+Key Concepts: $\sigma_{y}$ is called the material's yield strength or yield point, which is an important indicator for plastic materials. For metals with no distinct yield point, it is defined as the stress value that produces 0.2% residual deformation, known as the yield limit.
+
+### Stage 3: Necking
+
+Characteristics: The sample undergoes noticeable and uniform plastic deformation. To increase strain in the sample, it's necessary to increase the stress value. This phenomenon, where the resistance to plastic deformation continuously increases as plastic deformation grows, is known as work hardening or strain hardening.
+
+Key Concepts: When stress reaches $\sigma_{u}$, the stage of uniform deformation in the sample concludes. This maximum stress, $\sigma_{u}$, becomes the material's ultimate strength or tensile strength. It signifies the material's resistance to maximum uniform plastic deformation. It's the maximum stress the material can withstand before tensile failure.
+
+### Stage 4: Localized Deformation
+
+Characteristics: After reaching $\sigma_{u}$, the sample begins to undergo non-uniform deformation and forms a neck. Stress decreases, and ultimately, the sample fractures when the stress reaches $\sigma_{f}$.
+
+Key Concepts: $\sigma_{f}$ is the material's conditional fracture strength, representing the ultimate resistance to plastic deformation of the material.
+
+The stress and strain in the stress-strain curve above are calculated based on the initial dimensions of the sample. In reality, the dimensions of the sample are continuously changing during the tensile process. At this point, the true stress $\sigma$ should be the instantaneous load ($P$) divided by the instantaneous cross-sectional area ($A$) of the sample.
+
+That is, $\sigma = \frac{P}{A}$.
+
+Similarly, true strain $\epsilon$ should be the instantaneous elongation divided by the instantaneous length.
+
+<div style={{ display:"flex", justifyContent: "center", fontSize: "1.4rem"}}>
+	$$\Delta\epsilon = \frac{\Delta L}{L}$$
+</div>
+
+The following is a true stress-strain curve:
+
+<TrueStressStrainCurve />
+
+Unlike the stress-strain curve, it doesn't decrease after reaching the maximum load but continues to rise until fracture. This indicates that metal undergoes continuous strain hardening during plastic deformation. As a result, the applied stress must continuously increase to sustain deformation, even after the appearance of necking. In this stage, the true stress at the necking point continues to rise, dispelling the illusion of stress decreasing in the stress-strain curve.
+
+### Other Material Curves
+
+Please note: Stress-strain curves can vary for different materials, and not every material will exhibit the four stages described above. Depending on the material, the stress-strain curve may look somewhat like the following diagrams.
+
+<OtherMaterialCurve />
+
+## Glossary
+
+### Yield Strength
+
+The yield strength of a material refers to the stress at which the material begins to exhibit plastic deformation. Because stress-strain curves vary for different materials, it's often challenging to precisely determine when a material starts to yield. In practical applications, several methods are used to define the yield point.
+
+### Elastic Limit
+
+The minimum stress at which plastic deformation is detected.
+
+### Proportional Limit
+
+The stress at which the stress-strain curve begins to show non-linear stress. For many metal materials, the elastic limit and the proportional limit are almost the same. Offset yield point: For some materials, there is no clear demarcation between the elastic and plastic stages in the stress-strain curve. A small specified plastic strain, typically 0.2%, is used to determine the corresponding stress as the yield point.
+
+<ProportionalityLimit />
+
+### True Stress and True Strain
+
+The engineering stress ($\sigma$) and engineering strain ($\epsilon$) obtained from tensile experiments earlier are calculated based on the undeformed initial cross-sectional area ($A_0$) and initial length ($L_0) of the specimen. In reality, both the cross-sectional area and length change as the load varies. Particularly, when the material experiences necking after the stress surpasses the tensile strength, the cross-sectional area significantly decreases. In this case, it is not appropriate to continue calculating stress using the initial cross-sectional area.
+
+True stress $\sigma_T$ and true strain $\epsilon_T$, as the names suggest, represent the actual stress and strain. They are calculated based on the actual cross-sectional area ($A_0$) and actual length ($L_0") after deformation due to applied loads.
+
+In the elastic deformation stage, due to the small deformation, there is almost no difference between engineering stress-strain and true stress-strain.
+
+In the plastic deformation stage, based on the assumption of constant volume during plastic deformation ($AL=A_0 L_0$), true stress-strain can be calculated from engineering stress-strain.
+
+True Stress: $$\sigma_T = \frac{P}{A} = \frac{PL}{A_0 L_0} = \frac{P(L_0 + \Delta L)}{A_0 L_0} = \frac{P}{A_0}(1+\epsilon) = \sigma(1 + \epsilon)$$
+
+True Strain: $$\epsilon_T = \int_{L_0}^L \frac{dL}{L} = \ln(\frac{L}{L_0}) = \ln(1 + \epsilon)$$
+
+<TrueAndEngineeringCurve />
+
+### Ductility and Brittleness
+
+Materials can be roughly categorized into two groups based on their mechanical properties: ductile materials and brittle materials.
+
+Steel and aluminum typically fall into the category of ductile materials. Glass, ceramics, concrete, and cast iron, on the other hand, are generally considered brittle materials.
+
+In a tensile test, ductile materials tend to exhibit significant plastic deformation before they break. In contrast, brittle materials have little to no yield stage when subjected to tension, and their stress rapidly surpasses the elastic limit before they fracture.
+
+<DocsColumnContainer>
+	<DocsColumn>
+		<BritleAndDuctile />
+	</DocsColumn>
+	<DocsColumn>
+		<MetalStressStrain />
+	</DocsColumn>
+</DocsColumnContainer>
+
+## Comparison of Standard Resins and Tough Resins
+
+<StandardAndToughResin />
+
+In 3D printing materials, especially for functional and prototype resins, understanding material properties and correct exposure times are essential prerequisites for selecting the right raw materials. The shape of the curve reflects various deformation processes that occur in the material when subjected to external forces, such as brittleness, plasticity, yielding, and fracture. This can help determine whether a material is brittle or ductile.
+
+Many times, we need printed parts that can withstand high stress or large strains without experiencing brittle fractures. This is known as toughness. Toughness refers to a material's ability to absorb energy during plastic deformation and fracture. The better the toughness, the less likely brittle fractures are to occur.
+
+Toughness is also defined as the area under the stress-strain curve. Tough materials typically strike a balance between strength (the ability to withstand stress) and ductility (elongation or strain percentage). As a result, the area under the stress-strain curve for tough materials is significantly larger than that of low ductility, strong and tough materials.
+
+Tough resins are more durable, adaptable, and have better impact resistance. They can withstand high stress or strain and are used to create robust prototypes that can withstand powerful impacts. They are also suitable for making snap-fit joints, movable hinges, and parts.

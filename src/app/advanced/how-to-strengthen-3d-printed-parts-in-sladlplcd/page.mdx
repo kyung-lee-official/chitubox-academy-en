@@ -1,0 +1,87 @@
+export const metadata = {
+	title: "How To Strengthen 3D Printed Parts in SLA/DLP/LCD?",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-01",
+	description:
+		"Part strength ensures that the printed part is strong and durable during the use or storage which will not break over time.",
+	keywords: ["Tricks & Tips"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/how-to-strengthen-3d-printed-parts-in-sladlplcd/cover.png",
+		],
+	},
+};
+
+# How To Strengthen 3D Printed Parts in SLA/DLP/LCD?
+
+For some 3D printed parts, part strength will be an important consideration in their practical application. Part strength ensures that the printed part is strong and durable during the use or storage which will not break over time. Although some parts have low part strength originally, they can be made stronger with reasonable methods. In the following contents, we will discuss how to strengthen 3D printed parts in SLA/DLP/LCD.
+
+## Infill Density
+
+For hollowed parts, the most obvious way to increase the strength is to increase the infill density. Using the Hollow feature of CHITUBOX, you can select "Grid 3D" and the "Infill Density" parameter will appear. Here you can set the infill density from 0% to 100%.
+
+After hollowing, it will be even clearer to judge the needed infill density by comparing. Here, let’s take 15% and 35% as two examples.
+
+<ImageContainer footnote={"15% Infill Density"}>
+	<AntdImage
+		alt="15% infill density"
+		src={
+			"/en/academy/images/docs/advanced/how-to-strengthen-3d-printed-parts-in-sladlplcd/15-infill-density.jpg"
+		}
+	/>
+</ImageContainer>
+
+<ImageContainer footnote={"35% Infill Density"}>
+	<AntdImage
+		alt="35% infill density"
+		src={
+			"/en/academy/images/docs/advanced/how-to-strengthen-3d-printed-parts-in-sladlplcd/35-infill-density.jpg"
+		}
+	/>
+</ImageContainer>
+
+## Wall Thickness
+
+When the wall thickness is too thin, you may encounter problems and issues relating to 3d design and quality. The minimum cross sectional wall thickness on any part is very much dependent on the overall part size and design.
+
+The minimum wall thickness refers to the minimum thickness that your model should have for any given material or technology. As for resin 3D printing, it’s better to go quite fine with minimum wall thicknesses of 2 mm.
+
+Know more:
+
+<Link href="https://www.chitubox.com/en/article/support/howto/chitubox-free/editing/26">
+	Is your wall thickness enough for a hollow resin model?
+</Link>
+
+## Material Properties
+
+The photosensitive resin used for 3D printing mainly adopts the acrylic ester system of free radical polymerization. The subdivided photosensitive resin materials show different properties according to the formula or production method, and are suitable for different fields.
+
+<ImageContainer>
+	<AntdImage
+		alt="high strength resin"
+		src={
+			"/en/academy/images/docs/advanced/how-to-strengthen-3d-printed-parts-in-sladlplcd/high-strength-resin.gif"
+		}
+	/>
+</ImageContainer>
+
+In response to the weak strength of the photosensitive resin, many companies began to produce stronger, more durable resin materials. The high strength resin has nearly the same strength as ABS, and this material achieves a balance between strength and elongation, giving 3d-printed products better impact resistance and strength which can be applied for automotive, industrial and consumer products.
+
+## Part Orientation
+
+3D printed parts are strongest in planes parallel to the build plateform which means they are much stronger in the XY direction than the Z direction. Vertical forces will split parts along layer lines, while horizontal forces generally distribute those loads along the grains. As a result, part orientation can literally make or break a part.
+
+<ImageContainer>
+	<AntdImage
+		alt="different tension loads"
+		src={
+			"/en/academy/images/docs/advanced/how-to-strengthen-3d-printed-parts-in-sladlplcd/different-tension-loads.png"
+		}
+	/>
+</ImageContainer>
+
+It can be easily understood as wood grains which are slices of material stacked together. So it’s easy to pull those slices apart vertically but very hard to push them past horizontally.
+
+## Post-processing
+
+Although the part is in cured, the surface is still sticky and relatively soft. When printing is finished, they usually do not react completely. As a result, post-curing is needed to complete the unfinished reaction. This is also the main reason for the change in aesthetic and mechanical properties. Post-curing can improve material properties such as strain modulus, strength, and stability. The hardened surfaces are harder and drier, making them easier to polish and paint.

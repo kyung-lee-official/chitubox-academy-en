@@ -1,0 +1,259 @@
+export const metadata = {
+	title: "CHITUBOX Settings Explained!",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-27",
+	description:
+		"In this post, we show you the detailed explanations of all the options in CHITUBOX Setting -- what they mean and how they work.",
+	keywords: ["CHITUBOX Basic", "Manual"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/cover.jpg",
+		],
+	},
+};
+
+# CHITUBOX Settings Explained!
+
+In the Setting on CHITUBOX Free, there are options for you to modify so the program works as you would like it to. Here we will show you a list of detailed explanations of all these options. So you'll have a better grasp of how they work and what they could affect.
+
+<ImageContainer>
+	<AntdImage
+		alt="chitubox settings"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/chitubox-settings.png"
+		}
+	/>
+</ImageContainer>
+
+1. <Link href="#option-1-enabling-this-option-will-calculate-the-volume-when-slicing">
+   	Enabling this option will calculate the volume when slicing...
+   </Link>
+1. <Link href="#option-2-graphics-card-backwards-compatible-mode">
+   	Graphics card backwards compatible mode...
+   </Link>
+1. <Link href="#option-3-enable-thumbnail-preview-of-desktop-model">
+   	Enable thumbnail preview of desktop model...
+   </Link>
+1. <Link href="#option-4-in-the-support-mode-the-selected-model-is-automatically-placed-in-the-center-of-the-perspective">
+   	In the support mode, the selected model is automatically placed in the
+   	center of the perspective
+   </Link>
+1. <Link href="#option-5-preview-support">Preview support</Link>
+1. <Link href="#option-6-display-support-auxiliary-line">
+   	Display Support Auxiliary Line
+   </Link>
+1. <Link href="#option-7-open-graphic-tooltip">Open Graphic Tooltip</Link>
+1. <Link href="#option-8-grid-spacing-and-width">Grid Spacing and Width</Link>
+1. <Link href="#option-9-sliced-file-thumbnail-view">
+   	Sliced File Thumnail View
+   </Link>
+1. <Link href="#option-10-support-hidden-angle-0---90">
+   	Support Hidden Angle (0-90°)
+   </Link>
+1. <Link href="#option-11-auto-save-interval">Auto Save Interval</Link>
+1. <Link href="#option-12-auto-save-directory">Auto Save Directory</Link>
+
+## Option 1: Enabling this option will calculate the volume when slicing...
+
+_Enabling this option will calculate the volume when slicing. This option may make the slicing slow. If you want to optimize the slicing speed, you can turn off this option. The volume of the slice can be read from the saved slice file._
+
+This option works as its description suggests. If you turn it on, the program will spend some time calculate the volume of the sliced model, and show the result after slicing. You will get the result **slower**.
+
+The volume number will be displayed in the right pane of the Preview screen (next to where the Network sending and Save buttons are placed).
+
+<ImageContainer>
+	<AntdImage
+		alt="the volume of the sliced model"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/the-volume-of-the-sliced-model.png"
+		}
+	/>
+</ImageContainer>
+
+If you turn it off, the program will not do the calculation when slicing. So it will slice **faster**. But you won't see the volume on the Preview screen.
+
+<ImageContainer>
+	<AntdImage
+		alt="model volume is not calculated"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/model-volume-is-not-calculated.png"
+		}
+	/>
+</ImageContainer>
+
+## Option 2: Graphics card backwards compatible mode
+
+_Graphics card backwards compatible mode, if the model preview or point location selection is abnormal, you can check this mode, the program will use more memory in this mode, restart to take effect_
+
+This option can fix compatibility issues with CHITUBOX Free when on some old graphics adapters. So if you're using a relatively old graphics card, and CHITUBOX Free isn't working properly on your computer, try turning on this option.
+
+## Option 3: Enable thumbnail preview of desktop model
+
+_Enable thumbnail preview of desktop model. Restart the computer to take effect._
+
+This allows you to see a thumbnail preview when you're viewing your model files on your desktop or File Explorer.
+
+Here is what you would see when this option is turned on or off:
+
+<ImageContainer>
+	<AntdImage
+		alt="thumbnail preview of desktop model"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/thumbnail-preview.png"
+		}
+	/>
+</ImageContainer>
+
+## Option 4: In the support mode, the selected model is automatically placed in the center of the perspective
+
+If you turn this option on, when you edit the support structures (select the Support tab), the camera will move to the center of the perspective, like this:
+
+<ImageContainer>
+	<AntdImage
+		alt="enable automatic centering of the model to perspective in the support mode"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/enable-automatic-centering-of-the-model.gif"
+		}
+	/>
+</ImageContainer>
+
+If this option is disabled, when you select the Support tab, the camera will stay at where it is:
+
+<ImageContainer>
+	<AntdImage
+		alt="disable automatic centering of the model to perspective in the support mode"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/disable-automatic-centering-of-the-model.gif"
+		}
+	/>
+</ImageContainer>
+
+If you don't like your camera to be moved automatically when clicking the Support tab, you should turn this option off.
+
+## Option 5: Preview support
+
+When manually adding supports, CHITUBOX gives you a live preview before adding them.
+
+<ImageContainer>
+	<AntdImage
+		alt="preview support"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/preview-support.gif"
+		}
+	/>
+</ImageContainer>
+
+## Option 6: Display Support Auxiliary Line
+
+When editing supports, there will be some short lines shown on the bottom surfaces and overhangs of your model to indicate support adding positions. These are Support Auxiliary Lines.
+
+<ImageContainer>
+	<AntdImage
+		alt="display support auxiliary line"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/display-support-auxiliary-line.png"
+		}
+	/>
+</ImageContainer>
+
+This setting allows you to show or hide these lines.
+
+## Option 7: Open Graphic Tooltip
+
+CHITUBOX has a tooltip feature. If you move your mouse pointer over a button or setting on your software interface, a tooltip will pop up, showing the function and usage of this button/setting.
+
+<ImageContainer>
+	<AntdImage
+		alt="graphic tooltip"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/graphic-tooltip.png"
+		}
+	/>
+</ImageContainer>
+
+If you turn this setting off, then the next time you move a pointer on a button, you won't see the tooltip.
+
+## Option 8: Grid Spacing and Width
+
+These two settings can set the distances and widths of your platform grids.
+
+Grid Spacing sets the distances between each square. If this value is higher, these squares will get further away from one another. And the grey lines will be wider.
+
+<ImageContainer>
+	<AntdImage
+		alt="grid spacing"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/grid-spacing.gif"
+		}
+	/>
+</ImageContainer>
+
+Grid Width refers to the width of the grid. If this value is larger, the size of each square will get larger.
+
+<ImageContainer>
+	<AntdImage
+		alt="grid width"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/grid-width.gif"
+		}
+	/>
+</ImageContainer>
+
+## Option 9: Sliced File Thumbnail View
+
+This option will decide how your sliced model file would look like on your desktop or File Explorer:
+
+-   Placement view - It shows how you placed the model at the moment you click the Slice button.
+-   Home view - It shows how your model would look like when you click the Home icon on the CHITUBOX software.
+-   Front view - The front of your model faces you.
+
+<ImageContainer>
+	<AntdImage
+		alt="sliced file thumbnail view"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/sliced-file-thumbnail-view.png"
+		}
+	/>
+</ImageContainer>
+
+## Option 10: Support Hidden Angle (0 - 90°)
+
+When in the support editing mode, if you look at the model from below, the support structures would block the bottom part of your model, which could be inconvenient. So the program will automatically hide the support when you reach a certain degree of angle.
+
+<ImageContainer>
+	<AntdImage
+		alt="supports are hidden when reaching a certain angle"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/supports-are-hidden-when-reaching-a-certain-angle.gif"
+		}
+	/>
+</ImageContainer>
+
+And this option allows you to change, when in the support editing mode, starting from which angle you want to hide the structures.
+
+If, for instance, you set it to 30 degrees, then when the angle (between your line of vision and the line vertical to the bottom plane) is equal to or lower than 30 degrees, the support structures will disappear.
+
+<ImageContainer>
+	<AntdImage
+		alt="angle illustration"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/chitubox-settings-explained/angle-illustration.png"
+		}
+	/>
+</ImageContainer>
+
+## Option 11: Auto Save Interval
+
+CHITUBOX Free has the auto save feature. It automatically saves your project at regular intervals. This option, Auto Save Interval, allows you to set that interval.
+
+If, for example, you set it to 15 minutes, CHITUBOX Free saves your project every 15 minutes.
+
+## Option 12: Auto Save Directory
+
+Auto Save Directory allows you to specify which location you want the auto save feature of CHITUBOX Free to save your project.
+
+Hopefully, this post has helped you understand these software settings better. If you have any question, feel free to post it in our <Link href="https://www.facebook.com/groups/104983723495672/">Facebook group</Link>, or contact us at <Link href="mailto:support@chitubox.com">support@chitubox.com</Link>
+
+<ModelSource
+	items={[["Buddha Star Wars", "https://www.thingiverse.com/thing:3222766"]]}
+/>

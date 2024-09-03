@@ -1,0 +1,124 @@
+import { DocsColumnContainer, DocsColumn } from "@/docComponents/docsColumn/DocsColumn";
+
+export const metadata = {
+	title: "How to Save Resin in SLA/DLP/LCD 3D Printing?",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-01",
+	description:
+		"Saving considerable amount of resin will be equal to save time & money.",
+	keywords: ["Knowledge"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/how-to-save-resin-in-sladlplcd-3d-printing/cover.png",
+		],
+	},
+};
+
+# How to Save Resin in SLA/DLP/LCD 3D Printing?
+
+Resins are probably the ideal material you can find for 3D printing when aiming to gain smoother surfaces and delicate details. However, resins are not as affordable like PLA, the average price of standard SLA resin hits around 50 USD/liter. Some special resins like dental resins or ceramic resins might somehow cost even more.
+
+Therefore, besides choosing economic resins, learning to save your resin becomes an indispensable skill and could save you a lot of costs. Here we enumerate 4 tips that you might overlook for you.
+
+## Hollow Your Models
+
+In most cases, you don't have to print your model in solid, hollowing your model before sending it to your printer would save significant volumes of resin for you. There are two things to keep in mind when it comes to hollowing.
+
+1. Thinner walls would for sure be more economic, but it also makes your model fragile, and might even increase the risk of print failures for delicate structures.
+1. Hollowed part might form an airtight chamber during printing, the low pressure in the chamber might thereby break your model or result in unexpected issues, you will need to punch holes using CHITUBOX to balance inner pressure and outer pressure so such problems can be avoided.
+
+<ImageContainer>
+	<AntdImage
+		alt="hollowed model"
+		src={
+			"/en/academy/images/docs/advanced/how-to-save-resin-in-sladlplcd-3d-printing/hollowed-model.png"
+		}
+	/>
+</ImageContainer>
+
+## Scale Down Your Model
+
+Another direct factor of resin consumption is, undisputedly, the size of your model. In CHITUBOX, you can adjust the size of your model from the left side toolbar by inputting the exact proportion, or, drag the handler manually to scale your model. CHITUBOX allows you to either scale your model in 3 dimensions simultaneously or scale along each axis respectively.
+
+<ImageContainer>
+	<AntdImage
+		alt="scale down the model"
+		src={
+			"/en/academy/images/docs/advanced/how-to-save-resin-in-sladlplcd-3d-printing/scale-down-the-model.gif"
+		}
+	/>
+</ImageContainer>
+
+## Optimize the Structure of Your Model
+
+The scenario that wastes your resin the most would be failed prints, especially for large-scale models, a failed print on a high-resolution printer with a large printing size could waste you half bottle of resin, or even more.
+
+To avoid failed prints, you will need to take care of your models' structures and optimize it as possible if you are capable of modifying the model with 3D modeling software. For example, thinner walls give you less model weight, which means less resin consumption, but also means the firmness of your model was sacrificed somehow, insufficient structure strength could be fatal for bottom-up resin printing. The model is hung upside-down on the build plate and bears gravity during printing. Sharper corners increase structure stress, also the possibility of cracks. Tiny holes smaller than 0.5mm would be tricky to handle, you might wanna use TC (Tolerance Compensation) in CHITUBOX to deal with that issue. Ribs and gussets help you enhance some areas of your model strength where outer force will likely be applied to.
+
+<ImageContainer>
+	<AntdImage
+		alt="ribs and gussets"
+		src={
+			"/en/academy/images/docs/advanced/how-to-save-resin-in-sladlplcd-3d-printing/ribs-and-gussets.png"
+		}
+	/>
+</ImageContainer>
+
+## Remove Unnecessary Supports and Rafts
+
+The amount of auto-added supports and rafts can be distinct if you place your model at different orientations. Find an angle where fewer supports and rafts will generate (make sure the strength of supports is guaranteed first). Pick out redundant supports and delete them manually. Vertical orientation always requires fewer supports.
+
+<DocsColumnContainer>
+	<DocsColumn>
+		<div className="flex flex-col items-center justify-center w-[400px] gap-2">
+			<div
+				className="flex items-center
+				drop-shadow-lg"
+			>
+				<AntdImage
+					alt="more auto-supports"
+					src={
+						"/en/academy/images/docs/advanced/how-to-save-resin-in-sladlplcd-3d-printing/more-auto-supports.png"
+					}
+				/>
+			</div>
+		</div>
+	</DocsColumn>
+	<DocsColumn>
+		<div className="flex flex-col items-center justify-center w-[321px] gap-2">
+			<div
+				className="flex items-center
+				drop-shadow-lg"
+			>
+				<AntdImage
+					alt="less auto-supports"
+					src={
+						"/en/academy/images/docs/advanced/how-to-save-resin-in-sladlplcd-3d-printing/less-auto-supports.png"
+					}
+				/>
+			</div>
+		</div>
+	</DocsColumn>
+</DocsColumnContainer>
+
+Under the premise of structural stability, fewer supports bring you smoother print surfaces and reduce post-processing workload.
+
+The 4 tips above help cut down resin consumption. CHITUBOX calculates resin consumption after slicing models by summing up each generated voxel (pixel area × layer height), simple but should be accurate enough and less error-prone in most circumstances. There are also 3rd-party online resin calculation tools, you can upload your model if the site is trusted.
+
+<ImageContainer>
+	<AntdImage
+		alt="resin consumption"
+		src={
+			"/en/academy/images/docs/advanced/how-to-save-resin-in-sladlplcd-3d-printing/resin-consumption.png"
+		}
+	/>
+</ImageContainer>
+
+<ModelSource
+	items={[
+		[
+			"Tyrant scale rending claws",
+			"https://www.thingiverse.com/thing:2520821",
+		],
+	]}
+/>

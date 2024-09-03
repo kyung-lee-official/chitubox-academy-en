@@ -1,0 +1,72 @@
+export const metadata = {
+	title: "Effects of Layer Height on SLA/DLP/LCD 3D Printing",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-04",
+	description:
+		"This is known as the ladder effect, which becomes more obvious on surfaces with greater curvature.",
+	keywords: ["Knowledge"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/effects-of-layer-height-on-sladlplcd-3d-printing/cover.png",
+		],
+	},
+};
+
+# Effects of Layer Height on SLA/DLP/LCD 3D Printing
+
+## Definition of Layer Height
+
+As we all know, stereolithography SLA/DLP/LCD 3D printing creates a part by reproducing it layer by layer. As the name implies, layer height refers to the thickness of each layer. Because of this additive characteristics, the height of each layer naturally determines the accuracy of the Z-axis direction and especially leaves the influence on curves and angles.
+
+For example, to print a cylinder with a hole, CHITUBOX must slice it into multiple layers and then stack them which will form an unsmooth edge that looks like a staircase. This is known as the ladder effect, which becomes more obvious on surfaces with greater curvature.
+
+<ImageContainer footnote={"Layer height: 0.2mm"}>
+	<AntdImage
+		alt="a cylinder with layer height of 0.2mm"
+		src={
+			"/en/academy/images/docs/advanced/effects-of-layer-height-on-sladlplcd-3d-printing/a-cylinder-with-layer-height-of-02mm.jpg"
+		}
+	/>
+</ImageContainer>
+
+## Effects of Layer Height
+
+Layer height not only affects printing quality, but also printing time. The total number of layers to generate a part determines the surface quality and the time required to print it. The thinner the layer height, the more the fixed height will be sliced, resulting in longer printing times. Relatively, the thinner the layer height, the better the surface quality, resulting in smoother surface and clearer vertical details.
+
+At this point, it is necessary to strike a balance between quality and speed. In general, 3D printers vary in technology, and the range of layers they can generate is also slightly different as some printers can print even thinner layers. The layer height is measured in mm (mm) or in micron (µm), with the most common setting of 50µm (0.05mm).
+
+## Effects of Layer Height on Printing Quality
+
+Take the following test as an example, it can be clearly seen that the surface quality of the parts performs under the layer height settings of 0.05mm, 0.1mm and 0.2mm. The thinner the layer height, the heigher the precision.
+
+<ImageContainer
+	footnote={
+		"Layer height: 0.05mm(left), Layer height: 0.1mm(middle), Layer height: 0.2mm(right)"
+	}
+>
+	<AntdImage
+		alt="different layer heights of the cylinder"
+		src={
+			"/en/academy/images/docs/advanced/effects-of-layer-height-on-sladlplcd-3d-printing/different-layer-heights-of-the-cylinder.jpg"
+		}
+	/>
+</ImageContainer>
+
+It should be further explained here that the layer height of 0.2mm cannot make the layer completely cured within 3s. So there are only 6 layers of the bottom which can be reproduced successfully on the build platform with the exposure time of 50s.
+
+## Effects of Layer Height on Success Rate
+
+In order to verify whether the cause of printing failure is due to insufficient exposure of the normal layer, we increased the exposure time of the normal layer to 30s and the cylinder with a layer height of 0.2mm is successfully printed.
+
+The effect of layer height on SLA/DLP/LCD 3D printing is not only quality and time. As shown below, if the z-axis of the machine is not stable enough, higher layer height settings under the higher printing speeds (like 100 mm/min lift speed, 200 mm/min retract speed) will aggravate this instability which leads to layer separation, fragmentation and even shifting.
+
+<ImageContainer
+	footnote={"Layer height: 0.05mm(left), Layer height: 0.1mm(right)"}
+>
+	<AntdImage
+		alt="the effect of different layer heights on printing"
+		src={
+			"/en/academy/images/docs/advanced/effects-of-layer-height-on-sladlplcd-3d-printing/the-effect-of-different-layer-heights-on-printing.jpg"
+		}
+	/>
+</ImageContainer>

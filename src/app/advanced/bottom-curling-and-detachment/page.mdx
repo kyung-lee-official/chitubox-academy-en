@@ -1,0 +1,120 @@
+export const metadata = {
+	title: "Bottom Curling and Detachment",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2023-11-01",
+	description: "Principles and troubleshooting of warping in light-curing printing",
+	keywords: ["Troubleshooting"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/bottom-curling-and-detachment/cover.png",
+		],
+	},
+};
+
+# Bottom Curling and Detachment
+
+## What
+
+Detachment happens due to bottom curling.
+
+During the printing process, the printed model is completely printed. However, the bottom of the model is warped and detached from the platform.
+
+If the bottom curling is not serious, the printer will continue to print on the abnormal basis, which will eventually make the printing result different from the expected result. If the bottom curling is serious, the bottom of the printed model will completely detach from the platform during the printing process, resulting in printing failure.
+
+## Why
+
+Bottom curling refers to the phenomenon that the edge of the printed model is warped or lifted during the printing process. The principle of its generation is mainly as follows:
+
+### Thermal Stress
+
+During the process of resin 3D printing, the light beam irradiates the photosensitive resin to solidify it into the required shape. During the curing process, the photosensitive resin will release heat. If the heat cannot be dissipated in time, too much heat will cause uneven temperature distribution inside the object. At this time, the thermal stress caused by internal deformation constraints will cause the part to warp. For a brief overview, please refer to <Link href="/advanced/a-brief-overview-of-thermal-stress-in-resin-3d-printing">📃 A Brief Overview of Thermal Stress in Resin 3D Printing</Link>.
+
+<ImageContainer>
+	<AntdImage
+		alt="Thermal deformation"
+		src={
+			"/en/academy/images/docs/advanced/bottom-curling-and-detachment/thermal-deformation.png"
+		}
+	/>
+</ImageContainer>
+
+### Bottom Fit
+
+The final result of bottom curling is that the bottom of the printed model cannot be well bonded to the build plate. When the printer build plate moves upward, the tension brought by the build plate and the attraction between the FEP film and the model are confronted, which eventually leads to the model that cannot be well bonded to the build plate. Gradually detach from the build plate, and then continue to print on these abnormal bases, which eventually leads to the situation of bottom curling. The bottom fit is mostly related to the build plate, such as the following several situations;
+
+<ImageContainer>
+	<AntdImage
+		alt="Upwarped bottom layers"
+		src={
+			"/en/academy/images/docs/advanced/bottom-curling-and-detachment/upwarped-bottom-layers.png"
+		}
+	/>
+</ImageContainer>
+
+#### Impurities on the Build Plate
+
+In order to ensure good adhesion, the contact surface between the model and the build plate should be clean. This requires that there are no oil stains, grease, fingerprints and other impurities on the build plate; if there are some residues of printed parts on the build plate and it is not cleaned and directly put into secondary printing, it will directly cause the bottom of the printing to be uneven and may seriously damage the printing screen;
+
+<ImageContainer>
+	<AntdImage
+		alt="Warp caused by residue"
+		src={
+			"/en/academy/images/docs/advanced/bottom-curling-and-detachment/warp-caused-by-residue.png"
+		}
+	/>
+</ImageContainer>
+
+#### Build Plated Not Leveled
+
+If the build plate is not leveled, when printing a large model, it is very likely that the bottom cannot be formed and the printing fails. At the same time, the uneven build plate will directly cause the bottom or bottom raft to be uneven. The bottom or bottom raft will appear obviously tilted or even warped.
+
+#### Build Plate Scratched
+
+The damage of the build plate may also affect the adhesion of the model. It may even cause the model to separate from the build plate.
+
+#### Inappropriate Speed of Motion
+
+The speed of motion of the machine has a certain impact on the printing quality. Different materials may require different speeds to avoid insufficient curing;
+
+For example, too fast machine movement speed will cause the printing material to not be completely cured. At this time, when the printed part is peeled off from the FEP film, the uncured part cannot be in good contact with the build plate, which will cause partial detachment or even complete detachment. Bottom curling is one of the situations;
+
+## How
+
+### Reduced Lift Print Speed
+
+Too high printing lift speed can easily lead to bottom curling and bending deformation of resin 3D printers. Moderately reducing the printing lift speed can make the model better adhere to the platform, and the success rate of printing the model is also higher; in the software, we can adjust the motion speed of the machine by adjusting the slicing settings in the software. In the setting interface of some printers, the motion speed can also be adjusted manually.
+
+In addition, another way is to adjust the Rest Time, which can ensure the completion of the polymerization in the printing process, so as to reduce the probability of warping.
+
+<ImageContainer>
+	<AntdImage
+		alt="Motion Parameters"
+		src={
+			"/en/academy/images/docs/advanced/bottom-curling-and-detachment/motion-params.png"
+		}
+	/>
+</ImageContainer>
+
+### Thermal Optimization
+
+Increase the cooling device around the printed model to improve the heat dissipation efficiency and avoid overheating of the edge. This method should be used with caution. The addition of external cooling devices may cause the resin temperature to drop to a certain extent and lose some activity. And because of the air flow during the printing process, it will bring in impurities and other problems, which will ultimately affect the printing results.
+
+### Reduction of Residues
+
+Ensure that the platform is cleaned at a certain frequency. Alcohol can be used to clean impurities such as grease and fingerprints to reduce the production of residues after photosensitive resin curing.
+
+### Leveling the Build Plate
+
+Ensure that the build plate is well-leveled to avoid curling, You can use the leveling tool and the leveling function in the printer for calibration.
+
+<Link href="/advanced/how-to-level-the-build-plate-on-a-bottom-up-3d-printer">
+	📃 How to Level the Build Plate on a Bottom-up 3D Printer
+</Link>
+
+### Polish the Build Plate
+
+After using for a period of time, you can polish the worn surface of the build plate to improve the adhesion. Use sandpaper to gently polish the surface of the build plate horizontally and vertically to increase the surface roughness. Then wipe the surface with a paper towel dipped in water or alcohol; or replace the build plate.
+
+### Pick Suitable Resins
+
+In resin 3D printing, the shrinkage range of resin materials is generally between 1% and 5%. A lower shrinkage rate usually refers to a lower value within this range. It is generally considered that a shrinkage rate close to 1% is more suitable. A lower shrinkage rate can reduce the size change of the printed model during the printing process, and improve the printing accuracy and correctness.

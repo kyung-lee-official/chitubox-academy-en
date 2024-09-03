@@ -1,0 +1,399 @@
+export const metadata = {
+	title: "Best Support Settings for Resin 3D Printing(SLA/DLP/LCD)",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-27",
+	description:
+		"When selecting the suitable support settings, your print have achieved half of success.",
+	keywords: ["CHITUBOX Basic", "Manual"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/cover.jpg",
+		],
+	},
+};
+
+# Best Support Settings for Resin 3D Printing(SLA/DLP/LCD)
+
+Usually, it is impossible to avoid using 3D printing support structures for overhangings and bridges as it might affect the quality of your print. When selecting the suitable support settings, your print have achieved half of success. But do you know what's the best support settings for resin 3D printing? The name of support settings maybe differ according to various slicers. In order to have a better understanding of those settings, let's take CHITUBOX as an example. The support settings of CHITUBOX, as illustrated below.
+
+<ImageContainer>
+	<AntdImage
+		alt="support"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/support.jpg"
+		}
+	/>
+</ImageContainer>
+
+<ImageContainer>
+	<AntdImage
+		alt="raft"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/raft.png"
+		}
+	/>
+</ImageContainer>
+
+## Raft
+
+Raft is the first layer which is also called attachment layer as the primary purpose of a raft is to help with bed adhesion. The raft is printed directly on the platform, then the object and support are printed above the raft. The exposure time for the raft is at least 10 times the regular exposure time to make sure that any potential gap between the build platform and vat floor is fully cured and the first layer is attached to the platform firmly.
+
+<ImageContainer>
+	<AntdImage
+		alt="raft settings in CHITUBOX"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/raft-settings.png"
+		}
+	/>
+</ImageContainer>
+
+In CHITUBOX, there are 5 settings related to raft. Let' discuss them one by one.
+
+-   Raft Shape
+
+CHITUBOX provides a skate raft shape, as illustrated below. When there is no raft shape, the layers adhered on the build plate are pieces of bottoms. The skate raft is covered on the build plate with a whole piece which expands the contact area to improve the adhesion. The cocked edge of the skate raft comes into play when removing the model from the build plate.
+
+<ImageContainer footnote={"Left: None   Right: Skate"}>
+	<AntdImage
+		alt="raft shape"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/raft-shape.png"
+		}
+	/>
+</ImageContainer>
+
+-   Raft Area Ratio(%)
+
+Raft area ratio has great effect on the proportion of the raft. The greater the proportion is, the stronger the adhesion will be. But certainly it also increases consumption of material and removal of supports might sometimes be tricky.
+
+<ImageContainer
+	footnote={"Left: Raft Area Ratio(110%)   Right: Raft Area Ratio(180%)"}
+>
+	<AntdImage
+		alt="raft area ratio"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/raft-area-ratio.png"
+		}
+	/>
+</ImageContainer>
+
+-   Raft Thickness(mm)
+
+As the name implies, it is the thickness of the raft. Usually, the thicker the raft is, the stronger the adhesion will be. But the consumption and the separation are still headaches for designers.
+
+<ImageContainer
+	footnote={"Left: Raft Thickness(1mm)   Right: Raft Thickness(5mm)"}
+>
+	<AntdImage
+		alt="raft thickness"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/raft-thickness.png"
+		}
+	/>
+</ImageContainer>
+
+-   Raft Height(mm)
+
+Just like raft thickness, it is the height of the raft. The higher the raft is, the easier it will be to find the key point to separate the print from the build plate. Also, it means more material consumption.
+
+<ImageContainer footnote={"Left: Raft Height(1.8mm)   Right: Raft Height(5mm)"}>
+	<AntdImage
+		alt="raft height"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/raft-height.png"
+		}
+	/>
+</ImageContainer>
+
+-   Raft Slope(°)
+
+Raft Slope is the angle between the raft edge and the horizontal plane. Usually, the smaller the angle is, the easier it will be to scoop up the model from the building plate according to the lever principle.
+
+<ImageContainer footnote={"Left: Raft Slope(20°)   Right: Raft Slope (80°)"}>
+	<AntdImage
+		alt="raft slope"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/raft-slope.png"
+		}
+	/>
+</ImageContainer>
+
+## Z lift height
+
+Z lift height is the distance between 3D model and build plate. To adjust Z lift height for 3D model, it will not be printed directly on the platform but on supports and raft. The lifting height should be set to 7 mm for large build platform and 5 mm Z lift height for small build platform, with a lifting speed of 10 mm/min.
+
+<ImageContainer>
+	<AntdImage
+		alt="Z lift height"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/z-lift-height.png"
+		}
+	/>
+</ImageContainer>
+
+<ImageContainer
+	footnote={"Left: Z lift height(20mm)    Right: Z lift height(5mm)"}
+>
+	<AntdImage
+		alt="different z lift height in CHITUBOX"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/different-z-lift-height.png"
+		}
+	/>
+</ImageContainer>
+
+## Top
+
+Top refers to the top part of the support. The top part is the key factor to link the model and support. If the support top is not thick enough, the 3D model maybe separate from the support due to the cured separation forces from FEP/PDMS on the printed object.
+
+<ImageContainer>
+	<AntdImage
+		alt="top settings in CHITUBOX"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/top-setting.png"
+		}
+	/>
+</ImageContainer>
+
+-   Contact Shape
+
+The sphere contact shape is like a ball to increase the contact area between the print and the support. In addition, when removing the support, diagonal cutting pliers can be used to cut off the sphere from where the support is connected, making it less likely to damage the model. Some rigid resins are relatively brittle. Cutting may easily leave remarkable holes on the surface of the model.
+
+<ImageContainer>
+	<AntdImage
+		alt="contact shape"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/contact-shape.png"
+		}
+	/>
+</ImageContainer>
+
+-   Contact Diameter(mm)
+
+The contact diameter directly reflects in the contact area between the model and the support. The longer the contact diameter, the stronger it stick to the object and the harder the dismantling with small diagonal cutting pliers.
+
+<ImageContainer>
+	<AntdImage
+		alt="contact diameter"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/contact-diameter.png"
+		}
+	/>
+</ImageContainer>
+
+-   Contact Depth(mm)
+
+The deeper the contact depth, the deeper the support tip inserts into the model.
+
+<ImageContainer>
+	<AntdImage
+		alt="contact depth"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/contact-depth.png"
+		}
+	/>
+</ImageContainer>
+
+-   Connection Shape
+
+There are three connection shapes in CHITUBOX: cone, pyramid, skate as illustrated below from left to right. Obviously, the sections from cone to pyramid are on the decrease. They don't have much special differences so you can choose one depending on your needs.
+
+<ImageContainer>
+	<AntdImage
+		alt="connection shape"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/connection-shape.png"
+		}
+	/>
+</ImageContainer>
+
+-   Upper Diameter(mm)
+
+Upper diameter refers to the diameter of support tip. Usually, the thicker the upper diameter, the stronger the support is. But sometimes, thicker is not better as it may look a bit top-heavy.
+
+<ImageContainer>
+	<AntdImage
+		alt="upper diameter"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/upper-diameter.png"
+		}
+	/>
+</ImageContainer>
+
+-   Lower Diameter(mm)
+
+Likewise lower diameter is the diameter of the bottom of the top part. It's helpful to reasonably adjust the lower diameter to avoid that the middle part cann't afford the heavy top.
+
+<ImageContainer>
+	<AntdImage
+		alt="lower diameter"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/lower-diameter.png"
+		}
+	/>
+</ImageContainer>
+
+-   Connection Length (mm)
+
+This feature allows designers to customize the connection length. An appropriate connection length can ensure that the support top is rough enough and easier to remove.
+
+<ImageContainer>
+	<AntdImage
+		alt="connection length"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/connection-length.png"
+		}
+	/>
+</ImageContainer>
+
+## Middle
+
+The middle part of the support have the ability to act as the spine for the human. The strength of the middle determines the strength of the support.
+
+-   Shape
+
+Like connection shape, there are also three selections for middle shape in CHITUBOX: prism, cube, cylinder as illustrated below from left to right. The system default is cylinder.
+
+<ImageContainer>
+	<AntdImage
+		alt="shape settings in CHITUBOX"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/shape-settings.png"
+		}
+	/>
+</ImageContainer>
+
+-   Diameter(mm)
+
+As the mainstay of the support, when the diameter of the middle increases, the support is rougher. Meanwhile, more materials will be used. Also you need to pay attention to the middle and the top in perfect proportion and harmony.
+
+<ImageContainer>
+	<AntdImage
+		alt="diameter"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/diameter.png"
+		}
+	/>
+</ImageContainer>
+
+-   Angle(°)
+
+Angle is the angle between the support top and the vertical. When the support top has an angle of 90 degrees with the contact surface of the print(normal vector), the force to the surface will also be vertical and the contact depth between the support and the surface is thinner so that it is easier to remove the support.
+
+<ImageContainer
+	footnote={"Left: Angle(10°)   Middle: Angle(30°)   Right: Angle(60°)"}
+>
+	<AntdImage
+		alt="angle"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/angle.png"
+		}
+	/>
+</ImageContainer>
+
+## Bottom
+
+Bottom is the support pedestals. Sometimes there are no rafts. So the bottom will be the attachment layer to help with bed adhesion. And when we have to generate support structures on the model itself, the bottom will come into play.
+
+<ImageContainer>
+	<AntdImage
+		alt="bottom settings in CHITUBOX"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/bottom-settings.png"
+		}
+	/>
+</ImageContainer>
+
+-   Platform Touch Shape
+
+CHITUBOX offers 5 types of bottom as illustrated below from left to right: skate, cone, cube, cylinder and prism. You can do it however you like but the skate and cone one may be much easier to separate from build plate due to their cocked edges.
+
+<ImageContainer>
+	<AntdImage
+		alt="platform touch shape"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/platform-touch-shape.png"
+		}
+	/>
+</ImageContainer>
+
+-   Touch Diameter(mm)
+
+It works the same way as the raft area ratio (see 1.2) to enhance the adhesion on the build plate. And the consumption of material and removal of supports are still need to be considered.
+
+<ImageContainer
+	footnote={"Left: Touch Diameter(12mm)   Right: Touch Diameter(20mm)"}
+>
+	<AntdImage
+		alt="touch diameter"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/touch-diameter.png"
+		}
+	/>
+</ImageContainer>
+
+-   Thickness
+
+What you can see is that the thicker the bottom thickness, the smaller the contact area is. So, the thickness is not the more, the better.
+
+<ImageContainer footnote={"Left: Thickness (1mm)   Right: Thickness (2mm)"}>
+	<AntdImage
+		alt="thickness"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/thickness.png"
+		}
+	/>
+</ImageContainer>
+
+-   Model Contact Shape
+
+Depending on the complexity of the 3D model with overhangings and bridges, sometimes we have to generate support structures on the model itself. Similar to the top, the bottom takes the small balls to increase the contact area and protect the surface of the model when removing the support.
+
+-   Contact Diameter(mm)
+
+The contact diameter directly reflects in the contact area between the model and the support bottom. The longer the contact diameter, the stronger it stick to the object and the harder the removal.
+
+<ImageContainer
+	footnote={"Left: Contact Diameter(0.6mm)   Right: Contact Diameter(0.8mm)"}
+>
+	<AntdImage
+		alt="contact diameter"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/bottom-contact-diameter.png"
+		}
+	/>
+</ImageContainer>
+
+-   Contact Depth(mm)
+
+The deeper the contact depth, the deeper the support bottom inserts into the model.
+
+<ImageContainer
+	footnote={"Left: Contact Depth(0.2mm)   Right: Contact Depth(0.6mm)"}
+>
+	<AntdImage
+		alt="contact depth"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/bottom-contact-depth.png"
+		}
+	/>
+</ImageContainer>
+
+-   Contact Point
+
+The more the contact point, the stronger the ability is to grip the surface. Also the tripod construction leads to more stable whole structure.
+
+<ImageContainer>
+	<AntdImage
+		alt="contact point"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/best-support-settings-for-resin-3d-printingsladlplcd/contact-point.png"
+		}
+	/>
+</ImageContainer>
+
+Adding 3D printing support is an academic issue rather than a technology. 3D printing complex models, many find it difficult to decide when and where to use support structures. Fortunately, ChiTuBox not only provides various powerful support settings, but also automatically places support structures where they are needed based on the parameters you set which makes things simple.
+
+<ModelSource
+	items={[["Godzilla_101", "https://www.thingiverse.com/thing:1632495"]]}
+/>

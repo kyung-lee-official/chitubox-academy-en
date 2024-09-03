@@ -1,0 +1,221 @@
+import { DocsColumnContainer, DocsColumn } from "@/docComponents/docsColumn/DocsColumn";
+
+export const metadata = {
+	title: "A Complete Guide About Adding Supports in SLA/DLP/LCD 3D Printing",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-04",
+	description:
+		"Support structures are needed in SLA/DLP/LCD 3D Printing which are one of the most important safeguard for successfully producing parts.",
+	keywords: ["Knowledge"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/cover.png",
+		],
+	},
+};
+
+# A Complete Guide about Adding Supports in SLA/DLP/LCD 3D Printing
+
+Support structures are always needed in SLA/DLP/LCD 3D Printing which are one of the most important safeguard for successfully producing 3D printed parts. Support structures are used for avoiding deformation and crumbling. As the support structures are produced as an inseparable part of the whole print, post-processing is necessary to remove the visual marks left on the part.
+
+## Support Structures in Top-down & Bottom-up 3D Printing
+
+Support structures in top-down and bottom-up 3D printing are not the same:
+
+In top-down 3D printing, support structures are similar to FDM. They are needed for producing accurately overhangs and bridges. As there are no peel force/separation force (Click here to know more about peel force/separation force: <Link href="https://www.chitubox.com/en/article/support/howto/chitubox-free/editing/39">How to Eliminate Z-axis Lines Caused by Peel Force/Separation Force?</Link>) during the 3D print process, the part can be oriented in any position. In top-down 3D printing, the most crucial factors to consider is to minimize the amount of support to avoid damaging part surface & reduce post-processing and decrease the total number of layers to reduce printing time.
+
+<ImageContainer>
+	<AntdImage
+		alt="Top-down 3D printing and Bottom-up 3D printing"
+		src={
+			"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/top-down-and-bottom-up-3d-printing.gif"
+		}
+	/>
+</ImageContainer>
+
+While in bottom-up 3D printing, the situation is much more complicated due to peel force/separation force as the most crucial criterion is to fight with peel force/separation force. There are many factors to affect the peel force/separation force like resin viscosity, lifting speed, radius of newly cured layer, and height between newly cured layer and FEP film. Among them, the cross-sectional area of each layer is related to the support structures. So in bottom-up 3D printing, parts should be oriented in a certain angle to minimize the cross-sectional area of each layer. And the reduction of support structures isn’t a priority.
+
+In the following guide, we’ll be focused on support structures in bottom-up 3D printing.
+
+## Where is Support Needed in Bottom-up SLA/DLP/LCD 3D printing?
+
+### Overhangs and Bridges
+
+Overhangs and bridges are usually illustrated with the help of the letters Y, H, and T in many articles.
+
+<ImageContainer>
+	<AntdImage
+		alt="use letters Y, H, and T to illustrate overhangs and bridges"
+		src={
+			"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/letters-y-h-and-t.png"
+		}
+	/>
+</ImageContainer>
+
+If an overhang tilts at an angle less than 45 degrees from the vertical, then you may be able to print that overhang without support structures. Letter Y has an angle of 30 degrees with the vertical which can be printed without support structures. The overhangs in the letter T have an angle of 90 degrees with the vertical. So you must use 3D printing support structures to print the letter T. In general, if a bridge is less than 5mm in length, the printer may be able to print it without support structures.
+
+In fact, those critical points may be limited by the actual situation of your 3D printer, printing material, and parameters. So it will be helpful to print those <Link href="https://www.thingiverse.com/thing:40382">overhang</Link> and <Link href="https://www.thingiverse.com/thing:3931816">bridge</Link> test models to verify your 3D printer.
+
+<ImageComparison
+	img1Src={
+		"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/overhangs.png"
+	}
+	alt1={"overhangs"}
+	img2Src={
+		"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/bridges.png"
+	}
+	alt2={"bridges"}
+/>
+
+A bridge generally refers to a horizontal overhang that connects two ends of a part, such as the middle part of the symbol ∏. Not all bridges need supports. If the span of a bridge is short, it can be printed without the support structure by a SLA/DLP/LCD 3D printer.
+
+However, if the span of the bridge is long, in the case of no support or insufficient support, the layer broken problem as shown above may occur due to the suspension printing. Even if the first layer of the bridge is printed successfully, layer-separated phenomenon may occur due to the continuation printing of the layers as shown below.
+
+<ImageContainer>
+	<AntdImage
+		alt="Due to the large span of the bridge and the lack of supports, its layers are broken"
+		src={
+			"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/bridge-layers-broken.png"
+		}
+	/>
+</ImageContainer>
+
+As shown, the bridge with the longest span is layer-separated obviously. While the second longest span, although not obvious, also has layer-separated problem, resulting in the middle part of the span is obviously thicker than the two ends.
+
+The print span of the bridge is largely dependent on the printer performance (eg. unstable Z-axis, weakened separation effect of FEP film, attenuated light source and etc.) and resin materials (eg. insufficient material rigidity). Therefore, before starting to print a part with a bridge, it is best to test the print with a specific part to get an idea of the printer's performance and the resin.
+
+Once you know the maximum printing span of the bridge that your 3D printer can "challenge" over, you have to add support or small pillars in CHITUBOX for bridges that exceed this length to ensure successful printing.
+
+Here is an easier way to judge where is support needed in bottom-up SLA/DLP/LCD 3D printing. Under CHITUBOX slicing preview, we can easily detect those positions.
+
+<ImageContainer>
+	<AntdImage
+		alt="examples"
+		src={
+			"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/examples.jpg"
+		}
+	/>
+</ImageContainer>
+
+Take the above parts as examples. We focus on the following positions of the base where the overhangs begin to appear and seperate. We can see that this layer is connected with the previously cured layer, and can be superimposed layer by layer without support structures.
+
+<ImageContainer>
+	<AntdImage
+		alt="the layer is connected with the previously cured layer"
+		src={
+			"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/connection-layers01.jpg"
+		}
+	/>
+</ImageContainer>
+
+Then the overhangs begin to extend to both sides, and the whole layer separate into two parts. Even during the separation process, the new layer is still connected to the previously cured layer, until the whole structure of the overhang is printed.
+
+<ImageContainer>
+	<AntdImage
+		alt="layers are still connected with the previously cured layer"
+		src={
+			"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/connection-layers02.jpg"
+		}
+	/>
+</ImageContainer>
+
+As for the “mouse” part, all the suspendings under CHITUBOX slicing preview need to be shored up with support structures.
+
+<DocsColumnContainer>
+	<DocsColumn>
+		<AntdImage
+			alt="suspendings"
+			width={195}
+			src={
+				"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/suspendings01.jpg"
+			}
+		/>
+	</DocsColumn>
+	<DocsColumn>
+		<AntdImage
+			alt="suspendings"
+			width={300}
+			src={
+				"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/suspendings02.jpg"
+			}
+		/>
+	</DocsColumn>
+	<DocsColumn>
+		<AntdImage
+			alt="suspendings"
+			width={223}
+			src={
+				"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/suspendings03.jpg"
+			}
+		/>
+	</DocsColumn>
+</DocsColumnContainer>
+
+### Weaker Structures
+
+The peel force/separation force in bottom-up 3D printing may cause deformation, visible lines and even breakage on weaker structures. Though they may not need support structures for successfully generated, support structures are still needed for stabilizing its structure during 3D print process.
+
+## Shapes of Support Structures in SLA/DLP/LCD 3D Printing
+
+### Ribs
+
+The most common support structures in SLA/DLP/LCD 3D printing look like thin ribs, with only small tips actually touching the model to save material. The advantage of using rib support structures is that it can satisfy most applications and does not damage the surface quality too much.
+
+### Nets
+
+Net support structures are like the intertwinement of shin flakes which provide a stable base for the parts. The bottom of the parts are nearly wrapped up by those nets. They are easier to be removed than flakes as they are much thinner. At the same time, the contact points of the net support structures are more compact.
+
+## Things to Consider When Adding Supports
+
+### Avoide Supports on Complex Surface
+
+SLA/DLP/LCD is very often used for applications where appearance or a smooth surface finish is required. In this case, it’s important to design your part to avoid that the forward-facing areas of your print are not in contact with support structures.
+
+<ImageContainer>
+	<AntdImage
+		alt="add supports to the Spider-Man's back"
+		src={
+			"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/spider-man.gif"
+		}
+	/>
+</ImageContainer>
+
+Orientation plays an important role in this case. If the aesthetic appearance of a surface on a component is paramount, orientating the part so that there is little to no support in contact with that area can also be an option.
+
+### Distribute Supports Evenly
+
+For a bottom-up stererolithography 3D printer, the object will be stressed uniformly by distributing supports evenly. The places where the supports are dense will hold the tug of war between the build plate and the FEP film in the bottom of the vat. While the sparse ones may separate from the supports which will be hung up to result in misrun or distortion.
+
+### Use Interconnected Supports
+
+When generating supports, it’s better to bridge supports together instead of placing them individually. If your slicer can't bring it to achievement, just abandon it. Such interconnection among supports in CHITUBOX greatly reduce chances of support failures. This technique will produce stiffer set of base and secondary supports that are less prone to breakage and failures.
+
+<ImageContainer
+	footnote={"Left: Interconnected Supports Right: Individual Supports"}
+>
+	<AntdImage
+		alt="Interconnected Supports and Individual Supports"
+		src={
+			"/en/academy/images/docs/advanced/a-complete-guide-about-adding-supports-in-sladlplcd-3d-printing/interconnected-supports-and-individual-supports.png"
+		}
+	/>
+</ImageContainer>
+
+### Avoid Supports Overlapping with Model
+
+The actual part to touch the print surface can only be small tips of support structures. For complex models, sometimes you may overlap supports with model surface if not editing carefully. When removing the supports in post-processing, the touching area will leave a stick which may damage the surface when polishing.
+
+### Enhance Supports for Weak Structures
+
+When some models reach a certain height, even if you change the support parameters, the overall support height is too large, and the support body is weak, which will cause problems with the support printing and cause the entire print to fail. At this time, you need to use the independent support or support enhancement function to treat the added support as a print and add support to enhance the stability of the support.
+
+<ModelSource
+	items={[
+		["Massive Overhang Test", "https://www.thingiverse.com/thing:40382"],
+		["Bridge-Test", "https://www.thingiverse.com/thing:3931816"],
+		[
+			"Spider Man - Miles Morales",
+			"https://www.thingiverse.com/thing:3306294",
+		],
+	]}
+/>

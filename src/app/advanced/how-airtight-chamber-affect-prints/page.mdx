@@ -1,0 +1,59 @@
+export const metadata = {
+	title: "How Airtight Chamber Affect Prints",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-01",
+	description:
+		"During the gradual investigation, we found that the most influential factor to the measurement was vacuum seal drawing.",
+	keywords: ["Knowledge"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/how-airtight-chamber-affect-prints/cover.png",
+		],
+	},
+};
+
+# How Airtight Chamber Affect Prints
+
+## Conclusion First
+
+Chamber structures are almost inescapable in 3D printing. Our models could contain chamber structures in many cases. When a closed chamber structure is formed between the model and the FEP film, it will affect the quality of the printed part. We can solve this problem by punching holes in inconspicuous areas, destruct the airtight structure, and allowing resin or air to freely circulate between the inner and outer of the chamber.
+
+## Why Airtight Chamber Affect Prints
+
+There are two situations we want to discuss:
+
+-   The force-bearing analysis where an airtight chamber is formed between the model and the FEP film
+
+-   The force-bearing analysis when the chamber structure is higher than the resin liquid level
+
+## An Airtight Chamber is Formed Between the Model and the FEP Film
+
+Let's take a hemispherical model as an example. During the printing process, the inner part of the chamber is always isolated from the air. Before the model detaching from the FEP film, the original pressure difference between the inside and outside of the chamber could be considered ignorable.
+
+When detachment begins, the build plate starts to rise, the model is subjected to tension from the build plate and the FEP film peels off. Since the bulk modulus of resin is much higher than that of air, and the chamber is filled with liquid resin almost without air, at the moment of peeling, a relatively significant low-pressure area forms right below the chamber, and the resin around the low-pressure area (Including the resin inside the chamber) will be subjected to a force towards the low-pressure area, and the pressure inside the chamber will also decrease, resulting in a pressure difference between the inside and outside of the chamber structure.
+
+The magnitude of this force is positively related to the cross-section of the chamber, the rising speed, and the resin viscosity. In order to greatly reduce the force acting on the model, we usually punch holes in the chamber to break the airtight structure. In the lifting stage of the model that has been punched holes, resin or air can flow into the chamber through the holes, which greatly reduces the pressure difference between the inside and outside of the chamber at the moment of detachment, thereby reducing the force acting on the model. As shown below:
+
+<ImageContainer>
+	<AntdImage
+		alt="airtight chamber without/with a hole"
+		src={
+			"/en/academy/images/docs/advanced/how-airtight-chamber-affect-prints/airtight-chamber-withoutwith-a-hole-01.gif"
+		}
+	/>
+</ImageContainer>
+
+The figure below shows the effect on the surface of the same hemispherical model with a wall thickness of 0.5mm, with and without a punched hole. It can be seen that the surface of the punched model is relatively complete and smoother, while the surface of the model without a punched hole has some tiny holes, pits and more defects.
+
+<ImageContainer>
+	<AntdImage
+		alt="airtight chamber without/with a hole"
+		src={
+			"/en/academy/images/docs/advanced/how-airtight-chamber-affect-prints/airtight-chamber-withoutwith-a-hole-02.png"
+		}
+	/>
+</ImageContainer>
+
+## The Chamber Structure of the Model is Higher Than the Resin Liquid Level
+
+When the chamber part is higher than the resin liquid level, since there is no air inside the chamber and the pressure is lower than atmospheric pressure, the resin in the chamber will not flow out but rises together with the chamber until air can enter the chamber. Therefore, in this process, the chamber of the part above the resin liquid level will also bear the pressure from the atmospheric pressure. If the chamber is small and the wall thickness is thick enough, such pressure will not have a significant effect on the printing quality. If the chamber is too large, the gravity of the resin in the chamber will oppose the pulling force from the build plate, which may cause the model to fall off or break supports. In this case, holes must be punched to allow air to flow into the chamber to reduce the pressure difference between the inside and outside.

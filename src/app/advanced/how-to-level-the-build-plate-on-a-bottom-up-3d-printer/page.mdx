@@ -1,0 +1,82 @@
+export const metadata = {
+	title: "How to Level the Build Plate on a Bottom-up 3D Printer?",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-04",
+	description:
+		"Using a bottom-up 3D printer, it is necessary to periodically calibrate or level the build plate before printing.",
+	keywords: ["Knowledge"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/how-to-level-the-build-plate-on-a-bottom-up-3d-printer/cover.png",
+		],
+	},
+};
+
+# How to Level the Build Plate on a Bottom-up 3D Printer?
+
+Maybe plate leveling is a somewhat cockamamie process because you pretty much have to re-level the plate if you have moved your vat or plate and sometimes it's hard to get it perfect. But while using a bottom-up 3D printer, it is necessary to periodically calibrate or level the build plate before printing.
+
+## Why Do you Need to Level the Build Plate?
+
+-   If the build plate is not flat, you will likely have adhesion problems and possible failures especially when you are attempting large prints.
+
+-   And the raft or bottom will aslo not be flat if the build plate not being leveled properly. The layers that are closely connected to the build plate will be thicker. The raft or bottom could have looked slant which may even affect the accuracy of the print.
+
+<ImageContainer>
+	<AntdImage
+		alt="uneven raft and thicker raft"
+		src={
+			"/en/academy/images/docs/advanced/how-to-level-the-build-plate-on-a-bottom-up-3d-printer/uneven-raft-and-thicker-raft.jpg"
+		}
+	/>
+</ImageContainer>
+
+## How to Level the Build Plate on a Resin 3D Printer?
+
+-   Place a piece of printer paper on the LCD screen
+-   Press the Z height reset button on the screen to lower the build plate until it goes for home position at the correct height
+    <ImageContainer>
+    	<AntdImage
+    		alt="manual button on the printer"
+    		src={
+    			"/en/academy/images/docs/advanced/how-to-level-the-build-plate-on-a-bottom-up-3d-printer/manual-button-on-the-printer.png"
+    		}
+    	/>
+    </ImageContainer>
+    <ImageContainer>
+    	<AntdImage
+    		alt="z height"
+    		src={
+    			"/en/academy/images/docs/advanced/how-to-level-the-build-plate-on-a-bottom-up-3d-printer/z-height.png"
+    		}
+    	/>
+    </ImageContainer>
+-   Hold the build plate and loosen the leveling screws
+    <ImageContainer>
+    	<AntdImage
+    		alt="Hold the build plate and loosen the leveling screws"
+    		src={
+    			"/en/academy/images/docs/advanced/how-to-level-the-build-plate-on-a-bottom-up-3d-printer/hold-the-build-plate-and-loosen-the-leveling-screws.gif"
+    		}
+    	/>
+    </ImageContainer>
+-   Check whether the build plate is flat (you can press the build plate to touch the screen)
+-   Tighten the leveling screws
+-   Reduce the lowering distance unit (0.1mm/1mm), and continue to lower the build platform until you feel resistance from the entire plane, not just a corner, when you try to move the paper.
+    <ImageContainer>
+    	<AntdImage
+    		alt="moving the paper"
+    		src={
+    			"/en/academy/images/docs/advanced/how-to-level-the-build-plate-on-a-bottom-up-3d-printer/moving-the-paper.gif"
+    		}
+    	/>
+    </ImageContainer>
+-   Back to the home screen and click "Set Z=0"
+    <ImageContainer>
+    	<AntdImage
+    		alt="Set Z=0 button"
+    		src={
+    			"/en/academy/images/docs/advanced/how-to-level-the-build-plate-on-a-bottom-up-3d-printer/set-z0-button.png"
+    		}
+    	/>
+    </ImageContainer>

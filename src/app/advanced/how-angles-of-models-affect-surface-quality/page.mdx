@@ -1,0 +1,193 @@
+import { DocsColumnContainer, DocsColumn } from "@/docComponents/docsColumn/DocsColumn";
+
+export const metadata = {
+	title: "How Angles of Models Affect Surface Quality",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-05-18",
+	description:
+		"In light-curing 3D printing, the placement angle of the model has a great influence on the printed surface.",
+	keywords: ["Knowledge"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/how-angles-of-models-affect-surface-quality/cover.png",
+		],
+	},
+};
+
+# How Angles of Models Affect Surface Quality
+
+## Preface
+
+The surface quality of SLA (Stereolithography) printing can vary greatly depending on the angle of models that were placed on the build plate. This article discusses how angles of models affect the surface quality and how we can improve it.
+
+## Best Printing Angle
+
+It is often mentioned that a model should be placed at a certain angle for printing, however, there's no reference value for us to use. Or maybe you've seen a similar picture like this:
+
+<ImageContainer>
+	<AntdImage
+		alt="print angle illustration"
+		src={
+			"/en/academy/images/docs/advanced/how-angles-of-models-affect-surface-quality/print-angle-illustration.png"
+		}
+	/>
+</ImageContainer>
+
+And this formula:
+
+<div style={{ display:"flex", justifyContent: "center", fontSize: "1.4rem"}}>
+	$$\arctan ( \frac{\text{Layer Height}}{\text{Pixel Width}} )$$
+</div>
+
+but still have no idea why.
+
+We know that for SLA (Stereolithography) printers, the smallest printing unit is a voxel, which is very similar to a pixel in a 2D bitmap image. The volume of each voxel is the area of a single pixel layer height. We can observe the difference between different placement angles for the flat structures from a microscopic point of view. Assuming that the pixel width of a printer is 0.05mm and the layer height is also set to 0.05mm, then the optimal printing angle is
+
+<div style={{ display: "flex", justifyContent: "center", fontSize: "1.4rem" }}>
+	$$\theta = \arctan ( \frac{0.05}{0.05} ) = 45^\circ$$
+</div>
+
+## Print Angle Experiment
+
+Let's see what happens when the model is placed at 40°, 45°, and 50° respectively.
+
+<DocsColumnContainer>
+	<DocsColumn>
+		<div className="flex flex-col w-60 gap-4">
+			<AntdImage
+				alt="place model at 40°"
+				src={
+					"/en/academy/images/docs/advanced/how-angles-of-models-affect-surface-quality/place-model-at-40.png"
+				}
+			/>
+			<div className="flex justify-center items-center text-gray-500">
+				θ = 40°
+			</div>
+		</div>
+	</DocsColumn>
+	<DocsColumn>
+		<div className="flex flex-col w-60 gap-4">
+			<AntdImage
+				alt="place model at 45°"
+				src={
+					"/en/academy/images/docs/advanced/how-angles-of-models-affect-surface-quality/place-model-at-45.png"
+				}
+			/>
+			<div className="flex justify-center items-center text-gray-500">
+				θ = 45°
+			</div>
+		</div>
+	</DocsColumn>
+	<DocsColumn>
+		<div className="flex flex-col w-60 gap-4">
+			<AntdImage
+				alt="place model at 50°"
+				src={
+					"/en/academy/images/docs/advanced/how-angles-of-models-affect-surface-quality/place-model-at-50.png"
+				}
+			/>
+			<div className="flex justify-center items-center text-gray-500">
+				θ = 50°
+			</div>
+		</div>
+	</DocsColumn>
+</DocsColumnContainer>
+
+It can be seen that the voxels on the flat surface can be distributed in a straight line only when the model is placed at 45°.
+
+To verify this, we use a printer with a pixel width of 0.051mm and set the layer height of 0.05mm, the best printing angle should be:
+
+<div style={{ display: "flex", justifyContent: "center", fontSize: "1.3rem" }}>
+	$$\arctan ( \frac{0.05}{0.051} ) \approx 44.43^\circ$$
+</div>
+
+Let's take a look at the actual print results:
+
+<DocsColumnContainer>
+	<DocsColumn>
+		<div className="flex flex-col w-60 gap-4">
+			<AntdImage
+				alt="print result"
+				src={
+					"/en/academy/images/docs/advanced/how-angles-of-models-affect-surface-quality/print-result-01.jpg"
+				}
+			/>
+			<div className="flex justify-center items-center text-gray-500">
+				θ = 40°
+			</div>
+		</div>
+	</DocsColumn>
+	<DocsColumn>
+		<div className="flex flex-col w-60 gap-4">
+			<AntdImage
+				alt="print result"
+				src={
+					"/en/academy/images/docs/advanced/how-angles-of-models-affect-surface-quality/print-result-02.jpg"
+				}
+			/>
+			<div className="flex justify-center items-center text-gray-500">
+				θ = 45°
+			</div>
+		</div>
+	</DocsColumn>
+	<DocsColumn>
+		<div className="flex flex-col w-60 gap-4">
+			<AntdImage
+				alt="print result"
+				src={
+					"/en/academy/images/docs/advanced/how-angles-of-models-affect-surface-quality/print-result-03.jpg"
+				}
+			/>
+			<div className="flex justify-center items-center text-gray-500">
+				θ = 50°
+			</div>
+		</div>
+	</DocsColumn>
+</DocsColumnContainer>
+
+The pictures show that there are no obvious stripes on the surface of the model that is placed at 44.43°.
+
+Even when printing models that has a flat face, it is not necessary to print at a certain angle if your precision requirements for the thickness of the first layer are not very high\*. Opposite, the flat surface can be directly placed on the build plate.
+
+> -   Both methods (inclined vs. horizontal) have their advantages and disadvantages.
+>
+> Errors are inevitable since the Z-axis zero point calibration of most printers is done manually, and accuracy is difficult to reach the micrometer level. If the Z-axis zero setting is too low, it will cause the first layer to be thinner than the set layer height. Conversely, if the Z-axis zero point is set too high, it will cause the first layer to be thicker than the set layer height. In addition, since the exposure time of the bottom layers is usually much longer than that of the normal layers, there will be an elephant foot problem (a.k.a skirt problem) when placing flat structures on the build plate, although it can be eliminated by using Tolerance Compensation in CHITUBOX. But if your precision requirement is very high, it will also take some time to adjust the compensation value. Moreover, it will be more difficult to take the model off from the build plate when placing flat structures on the build plate, and there is a risk of damaging the model when taking it off. The advantage of placing flat structures on the build plate is that the bottom does not need to be supported, and the printed surface is smooth and does not require post-processing. For Tolerance Compensation and elephant foot, you can check the article <Link href="/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox">How to Use Tolerance Compensation on CHITUBOX</Link>.
+>
+> Placing flat structures at an angle could avoid the problems described above, but if the tilt angle is not large, it is necessary to increase supports density to resist the peeling force, especially the edge areas. In this case, acne-like supports marks will be left after the supports are removed, which requires a long post-processing time, and the smoothness is not as good as placing flat structures on the build plate.
+
+A very common mistake is to add supports when trying to print the model horizontally, which would present the disadvantage of the combination of the two methods. **DON'T DO THIS**:
+
+<ImageContainer>
+	<AntdImage
+		alt="add supports when printing the model horizontally"
+		src={
+			"/en/academy/images/docs/advanced/how-angles-of-models-affect-surface-quality/add-supports-when-printing-the-model-horizontally.png"
+		}
+	/>
+</ImageContainer>
+
+## Influence of Cross-Sectional Area and Lifting Speed on Peel Force
+
+For non-flat-structure models, the key point is the cross-sectional area. The larger the cross-sectional area, the greater the peel force will be
+
+<div style={{ display:"flex", justifyContent: "center", fontSize: "1.5rem"}}>
+	$$F = \frac{3\pi\eta R^4}{2h^3}\frac{dh}{dt}$$
+</div>
+
+For circular-like cross-sections, the Stefen's Adhesion Formula can be used to approximate the peel force.
+
+-   $η$: Viscosity coefficient of liquid
+-   $R$: Diameter of two parallel circular structures
+-   $h$: Distance between two parallel circles
+
+The formula indicates that when the diameter of the two parallel circular surfaces increases by 2 times, the peeling force will drastically increase to 16 times the original value. The peel force can be lowered by reducing the lifting speed, alternatively, you can cut down the cross-sectional area by adjusting the angle of the model, but this tends to increase the print height, which could results in longer print times.
+
+## Conclusion First
+
+There is no "best printing angle" for models that do not contain flat structures. For flat structures, the optimum print angle is
+
+<div style={{ display:"flex", justifyContent: "center", fontSize: "1.4rem"}}>
+	$$\arctan ( \frac{\text{Layer Height}}{\text{Pixel Width}} )$$
+</div>
+
+When dealing with non-flat-structure models, you try to avoid the layer cross-sectional area being too large.

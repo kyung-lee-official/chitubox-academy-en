@@ -1,0 +1,145 @@
+export const metadata = {
+	title: "A Detailed Analysis of the Factors Affecting Printing Accuracy",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-01",
+	description:
+		"What's the relationship between resolution and printing size?",
+	keywords: ["Knowledge"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/a-detailed-analysis-of-the-factors-affecting-printing-accuracy/cover.png",
+		],
+	},
+};
+
+# A Detailed Analysis of the Factors Affecting Printing Accuracy
+
+We know that the accuracy of resin printing results are affected by many factors, in which the resolution and print size are the most important ones. In this article, we will discuss how the resolution and print size and other common factors affect the accuracy of resin printing.
+
+## X/Y Resolution and Print Size
+
+Resin 3D printing includes three common printing methods: Stereolithography (SLA), Digital Light Processing (DLP) and Liquid Crystal Display (LCD). They use different light sources to cure the model and form layer by layer.
+
+For resin 3D printing, the resolution in the X/Y direction refers to the number of UV units that can be projected onto the resin surface, while the print size refers to the area that UV units can be projected onto. In short, printing accuracy is proportional to resolution and inversely proportional to print size, this is pretty much like our phone screen, the definition of the screen is determined by PPI (pixel per inch), the higher the PPI, the higher the definition. The same is true for resin 3D printing. We can also use the PPI to measure the accuracy of resin 3D printers. PPI is calculated as follows:
+
+<div style={{ display: "flex", justifyContent: "center", fontSize: "1.4rem" }}>
+	$$PPI = \frac{\sqrt{\text{(UV Units on X)}^2+\text{(UV Units on Y)}^2}}{\text{Screen Diagonal Lenght}}$$
+</div>
+
+You might wonder what UV units are. In fact, the size of the UV unit is determined by either the light source or the pixel size of the screen. Such as: SLA laser light source, DLP projection light source, LCD panel pixel size. To figure out the difference between them, you must first understand their imaging principles.
+
+## Imaging Principles
+
+SLA is driven by two mirrors which is known as "galvanometers" or "galvos" (one on the X-axis and one on the Y-axis). The mirrors aim the laser beam quickly across the target print area to cure the resin as it moves along. In order to reproduce a solid object, SLA must slice the entity, layer by layer, into a series of points and lines that are given to the "galvos" as a set of coordinates whose trajectories are tracked by the laser. So in SLA, the UV unit is determined by the laser beam diameter.
+
+<ImageContainer footnote="SLA">
+	<AntdImage
+		alt="SLA imaging principle"
+		src={
+			"/en/academy/images/docs/advanced/a-detailed-analysis-of-the-factors-affecting-printing-accuracy/sla-imaging-principle.png"
+		}
+	/>
+</ImageContainer>
+
+DLP uses a digital projector to project individual images of each layer at once across the entire platform. Since the image of each layer is displayed digitally, it is composed of many square pixels. The UV unit, in this case, is determined by the pixel size projected on resin.
+
+<ImageContainer footnote="DLP">
+	<AntdImage
+		alt="DLP imaging principle"
+		src={
+			"/en/academy/images/docs/advanced/a-detailed-analysis-of-the-factors-affecting-printing-accuracy/dlp-imaging-principle.png"
+		}
+	/>
+</ImageContainer>
+
+LCD and DLP are almost the same but with the UV light coming from an array of LEDs shining through an LCD, not a projector. The screen acts as a mask, displaying only the pixels needed for the current layer, so the UV unit is determined by the pixel size of the screen.
+
+<ImageContainer footnote="LCD">
+	<AntdImage
+		alt="LCD imaging principle"
+		src={
+			"/en/academy/images/docs/advanced/a-detailed-analysis-of-the-factors-affecting-printing-accuracy/lcd-imaging-principle.png"
+		}
+	/>
+</ImageContainer>
+
+Let's take a look at this example, the forming width of a printer in the X-axis direction is 68mm, and the number of pixels in the X-axis direction is 1440, then the pixel accuracy in the X-axis direction is:
+
+<div style={{ display:"flex", justifyContent: "center", fontSize: "1.4rem"}}>
+	$$\frac{68\text{mm}}{1440\text{px}} \footnotesize{\approx 47 \mu m}$$
+</div>
+
+The same holds true for the Y-axis direction.
+
+<Admonition type="note">
+	For TFT screens, there is a gap between adjacent pixels, the effective
+	exposure area of each pixel will be slightly smaller than the calculated
+	single pixel area here.
+</Admonition>
+
+In 3D printing, no factor is more crucial than XY resolution (horizontal resolution or minimum feature size) when considering what matter most to accuracy. XY resolution is the smallest movement (on the horizontal plane) within a given layer. The lower the value, the better the details.
+
+## Set Resolution and Print Size in CHITUBOX
+
+If the resolution and print size were not set correctly, the model will be distorted.
+
+Take Elegoo Mars Pro as an example, we can find that it is 120 × 68 × 155mm Build Volume and 68.04 × 120.96mm Display Area. Although the two parameters are with little difference, it will still cause the accuracy distortion of XY direction.
+
+<ImageContainer>
+	<AntdImage
+		alt="print size"
+		src={
+			"/en/academy/images/docs/advanced/a-detailed-analysis-of-the-factors-affecting-printing-accuracy/print-size.png"
+		}
+	/>
+</ImageContainer>
+
+These two areas can easily confuse the less experienced users. In fact, the screen area of Elegoo Mars Pro is 68.04 × 120.96mm. But due to the assembly (When LCD printer is installed, the tempered glass will block the edge of the screen to avoid light leakage), the printable area is only 68 × 120mm (In general, DLP printers do not have this issue). However the resolution needs to match the printing size, it is correct to fill in the parameter of 68.04 × 120.96mm.
+
+The good news is that CHITUBOX's built-in 3D printers have already provided the best size parameters by default. So you don't have to worry if you don't know much about it. As most users will not put the part in the most corner of the build platform, it does not affect the actual use if the display area is slightly reduced.
+
+However, if the assembly leads to a large reduction of the actual printed area (such as 120.96mm reduction to 115mm), the parameter of 120.96mm still needs to be filled in here. And the actual printed area can be solved by calibrating the "Build Area Offset" option.
+
+## Accuracy in the Z Direction
+
+### Layer Height
+
+Resolution and screen size together determine the accuracy of the model in the XY direction, while layer thickness determines the accuracy of the model in the Z direction. The layer thickness is the relative displacement distance of the printing platform in the Z direction before each exposure compared to the previous exposure. The smaller the layer thickness, the higher the model accuracy, and of course, the longer the printing time. The printing platform is controlled by the stepper motor through the screw. Theoretically, the minimum moving distance is related to the step angle of the stepper motor and the <Link href="https://www.thomsonlinear.com/en/support/tips/difference-between-screw-pitch-and-lead">lead</Link> of the screw (the displacement distance of one revolution of the screw), but it may also be limited by the slicing software.
+
+<div style={{ display:"flex", justifyContent: "center", fontSize: "1.2rem"}}>
+	$$\footnotesize{\text{Minimum Moving Distance}} = \frac{\text{Lead}}{\text{Number of Steps (Including Microsteps) of One Revolution}}$$
+</div>
+
+Taking the step angle of 1.8°, 16 microsteps, and 2mm lead as an example,
+
+<div style={{ display:"flex", justifyContent: "center", fontSize: "2rem"}}>
+	$$\tiny{\text{Minimum Moving Distance}} = \frac{2 \text{mm}}{\frac{360^\circ}{1.8^\circ} \times 16 \text{Microsteps}} =\tiny{0.625\mu m}$$
+</div>
+
+### Axis Stability
+
+The Z axis stability can be understood by observing the design of the machine. First, check the subdivision of the guide rail and the drive motor (the vast majority of which are using A4988 of 16 subdivisions or silent driver chips of 256 subdivisions) and then the perpendicularity, true straightness, centrality for the Z axis assembly.
+
+Verticality: Z axis should form a certain angle with the screen plane as 90 degrees.
+
+True straightness: the optical axis of the Z axis should be a real straight line in position from the beginning.
+
+Centrality: The spacing between the guide rail and the drive screw rod should be equal when moving up and down which means that the centrality of the two is parallel on the two center shafts.
+
+In addition, the fixed screws and joints of the build platform, the cantilever will also affect the stability of the Z axis.
+
+## Other Factors Affecting Accuracy
+
+In addition to screen resolution and layer thickness, there are many other factors to consider. When starting 3D printing, be patient and don't expect perfect print quality from the start, experience is gained through trial and error. Last but not least, accurate 3D slice settings are especially important for 3D print quality.
+
+### Insufficient Supports
+
+Most models need proper supports. If the support is not added enough or too thin or not placed properly, the part may be skewed or even deformed, thus affecting the accuracy. You can optimize the support structure by adjusting the support parameters in CHITUBOX and adjust the orientation.
+
+### Underexposure or Overexposure
+
+Exposure also has an impact on the accuracy of the part. Underexposure will cause the part to be smaller than the actual size, while overexposure will make it to be larger.
+
+### Isopropyl Alcohol Immersion
+
+Resins can absorb alcohol which causes it to expand or curl, especially for those with details like the thin walls or columns. Therefore, part can not be soaked in isopropyl alcohol for too long. It is recommended to clean with ultrasonic machine for no more than 2 minutes and soak in isopropyl alcohol for no more than 10 minutes.

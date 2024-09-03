@@ -1,0 +1,93 @@
+export const metadata = {
+	title: "How to Hollow out A Part?",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-27",
+	description:
+		"Hollow parts out so as to reduce the volume and create smoother outer surface.",
+	keywords: ["CHITUBOX Basic", "Manual"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-hollow-out-a-part/cover.jpg",
+		],
+	},
+};
+
+# How to Hollow out A Part?
+
+Step 1. Launch CHITUBOX software and import your part.
+
+<ImageContainer>
+	<AntdImage
+		alt="launch chitubox"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-hollow-out-a-part/launch-chitubox.jpg"
+		}
+	/>
+</ImageContainer>
+
+Step 2. Click "Hollow" button to hollow out a part.
+
+<ImageContainer>
+	<AntdImage
+		alt="Hollow feature in chitubox"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-hollow-out-a-part/hollow-feature-in-chitubox.jpg"
+		}
+	/>
+</ImageContainer>
+
+Step 3. Set your wall thickness. Wall thickness is the distance between the outer surface of your model and the opposite inner surface. You need to know how thick the wall of your objects is supposed to be and guarantee that your model is thick enough before printing. Wall thickness is very important when 3D printing as thin walls or zero thickness walls will cause the print to fail because of its fragility.
+
+<ImageContainer>
+	<AntdImage
+		alt="wall thickness illustration"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-hollow-out-a-part/wall-thickness.jpg"
+		}
+	/>
+</ImageContainer>
+
+<ImageContainer footnote="Left: 5mm wall thickness Right: 2mm wall thickness">
+	<AntdImage
+		alt="different wall thickness"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-hollow-out-a-part/different-wall-thickness.jpg"
+		}
+	/>
+</ImageContainer>
+
+Step 4. Set your precision. Precision refers to the smoothness of the wall surface. The higher the precision, the smoother the wall surface.
+
+Step 5. Choose inner or outer hollow process. When tick "Inner" TAB, the inner part will be hollowed. Otherwise, the outer.
+
+<ImageContainer>
+	<AntdImage
+		alt="hollow out the model"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-hollow-out-a-part/hollow-out-the-model.jpg"
+		}
+	/>
+</ImageContainer>
+
+<ImageContainer>
+	<AntdImage
+		alt="peel off the model"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-hollow-out-a-part/peel-off-the-model.jpg"
+		}
+	/>
+</ImageContainer>
+
+<Admonition type="tip">
+	Multiple hollow operations will be retained at the same time to achieve the
+	simultaneous existence of multiple walls inside one part.
+</Admonition>
+
+<ImageContainer>
+	<AntdImage
+		alt="multiple hollow operations"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-hollow-out-a-part/multiple-hollow-operations.gif"
+		}
+	/>
+</ImageContainer>

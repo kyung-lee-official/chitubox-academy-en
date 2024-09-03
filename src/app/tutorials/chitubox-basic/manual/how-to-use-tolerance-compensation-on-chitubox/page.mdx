@@ -1,0 +1,223 @@
+export const metadata = {
+	title: "How to Use Tolerance Compensation on CHITUBOX?",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-27",
+	description:
+		"This post shows you how tolerance compensation on CHITUBOX works and the detailed steps to use this feature.",
+	keywords: ["CHITUBOX Basic", "Manual"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/cover.jpg",
+		],
+	},
+};
+
+# How to Use Tolerance Compensation on CHITUBOX?
+
+Your printed model can't satisfy your requirements when its size doesn't match what was designed and has a significant deviation. Since version V1.8.0 Beta, we have introduced the tolerance compensation feature in CHITUBOX. It helps you adjust the inner and outer diameters of your model, so, when they go beyond the tolerance, you can calibrate them to ensure the model size precision.
+
+In this post, you'll know:
+
+1. <Link href="#where-on-the-model-will-tolerance-compensation-work-on">
+   	Where on the model will tolerance compensation work on
+   </Link>
+1. <Link href="#the-detailed-steps-of-using-tolerance-compensation">
+   	The detailed steps of using tolerance compensation
+   </Link>
+1. <Link href="#a-simple-test-case">
+   	A simple test case showing its efficacy
+   </Link>
+
+## Where on the model will tolerance compensation work on
+
+Tolerance Compensation on CHITUBOX applies to the inner and outer diameters of your models. They are defined as follows:
+
+-   **Inner diameter compensation** applies to the deviations of the size of closed inner contours (e.g. holes or hollowing) on each layer of the model;
+-   **Outer diameter compensation** applies to the deviations of the size of outer contours on each layer of the model.
+
+As you can see from the image below, the red line marks where inner diameter compensation takes effect, while the green lines indicate where outer diameter compensation works on.
+
+<ImageContainer>
+	<AntdImage
+		alt="inner and outer compensation areas"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/inner-and-outer-compensation-areas.jpg"
+		}
+	/>
+</ImageContainer>
+
+<Admonition type="note">
+	Inner compensation only works on CLOSED inner contours. Inner contours that
+	look like the image below, even though it is almost closed, is counted as an
+	outer contour because it is connected to the outside. So only outer diameter
+	compensation will take effect.
+</Admonition>
+
+<ImageContainer>
+	<AntdImage
+		alt="unclosed inner contour"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/unclosed-inner-contour.png"
+		}
+	/>
+</ImageContainer>
+
+CHITUBOX lets you enter two numbers (a and b) to set the inner and outer diameter compensation respectively. These numbers work like below:
+
+<ImageContainer>
+	<AntdImage
+		alt="example of inner and outer compensation effects"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/example-of-inner-and-outer-compensation-effects.png"
+		}
+	/>
+</ImageContainer>
+
+-   When a is larger, the inner diameter is shorter, and the model body is larger. When a is smaller, the inner diameter is longer, and the model body is smaller. When a is set to positive (to compensate for the model shrinkage), the inner diameter decreases, and the body size increases. When a is set to negative (to compensate for the model expansion), the inner diameter increases, and the body size decreases.
+-   When b is larger, the outer diameter is longer, and the model body is larger. When b is smaller, the outer diameter is shorter, and the model body is smaller. When b is set to positive (to compensate for the model shrinkage), the outer diameter increases, and the body size increases. When b is set to negative (to compensate for the model expansion), the outer diameter decreases, and the body size decreases.
+
+<Admonition type="note">
+	The changes of a and b apply to every single side of the inner and outer
+	contours. If you look at the image above, if b increases, all the four sides
+	of the outer contours move out by the value of b, which means the outer
+	diameter goes up by 2\*b; if you increase a, the whole circle will shrink by
+	a, and this reduces the inner diameter (here, the diameter of the circle) by
+	2\*a.
+</Admonition>
+
+## The detailed steps of using tolerance compensation
+
+To use this feature on CHITUBOX:
+
+1. Click Settings button above Slice.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="setting button"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/setting-button.png"
+    		}
+    	/>
+    </ImageContainer>
+
+1. Click **Advanced**.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="Advanced settings"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/advanced-settings.png"
+    		}
+    	/>
+    </ImageContainer>
+
+1. According to your requirements, select **Tolerance Compensation** or **Bottom Tolerance Compensation** (see its explanation below), and enter your a (inner diameter) and b (outer diameter) values.
+
+    <ImageContainer>
+    	<AntdImage
+    		alt="tolerance compensation and bottom tolerance compensation"
+    		src={
+    			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/tolerance-compensation-and-bottom-tolerance-compensation.png"
+    		}
+    	/>
+    </ImageContainer>
+
+(Due to the different printing settings for bottom layers, the bottom sizes may have different deviations from the normal layers. For example, the bottom will have longer exposure time, and therefore larger size, so called "elephant's foot". To solve these problems, CHITUBOX has specific settings for the bottom layer compensation, which are "bottom tolerance compensation".)
+
+This is how you set up tolerance compensation. Once you finish editing and slicing your model, you can print it and see how this feature works.
+
+In normal cases, it is suggested that you print your model first to test and measure it. If you see significant deviations, then you use tolerance compensation to try fixing the issues and printing the model again, until the sizes satisfy you.
+
+## A simple test case
+
+We did a simple test using this feature.
+
+We chose a pair of typical hole-shaft models. The shaft is designed as 10 mm in (outer) diameter, and the hole 10.5 mm in inner diameter.
+
+<ImageContainer>
+	<AntdImage
+		alt="A simple test case"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/a-simple-test-case.png"
+		}
+	/>
+</ImageContainer>
+
+When we printed the models the first time, without any compensation, the measured shaft diameter was 10.19 mm, and the hole 10.05 mm.
+
+<ImageContainer>
+	<AntdImage
+		alt="the shaft diameter"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/the-shaft-diameter01.jpg"
+		}
+	/>
+</ImageContainer>
+
+<ImageContainer>
+	<AntdImage
+		alt="the hole diameter"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/the-hole-diameter01.jpg"
+		}
+	/>
+</ImageContainer>
+
+These numbers told us that compared to the design, the diameter of the shaft is larger, and the hole is smaller. So both models swelled up a bit, and they couldn't fit each other.
+
+<ImageContainer>
+	<AntdImage
+		alt="both models swelled up"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/both-models-swelled-up.gif"
+		}
+	/>
+</ImageContainer>
+
+So we used the tolerance compensation feature on CHITUBOX. We set the value for a and b to -0.2 and -0.1 millimeters respectively. Hopefully this could increase the inner diameter by 0.4mm and reduce the outer by 0.2mm (from the explanation above, the changes of the diameter is twice as the compensation values), so they could get close to the designed values.
+
+<ImageContainer>
+	<AntdImage
+		alt="tolerance compensation"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/tolerance-compensation.png"
+		}
+	/>
+</ImageContainer>
+
+When we printed them the second time, with tolerance compensation, the shaft diameter was 10.00 mm, and the inner diameter for the hole was 10.43 mm.
+
+<ImageContainer>
+	<AntdImage
+		alt="the shaft diameter"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/the-shaft-diameter02.jpg"
+		}
+	/>
+</ImageContainer>
+
+<ImageContainer>
+	<AntdImage
+		alt="the hole diameter"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/the-hole-diameter02.jpg"
+		}
+	/>
+</ImageContainer>
+
+And they fit well.
+
+<ImageContainer>
+	<AntdImage
+		alt="models fit well"
+		src={
+			"/en/academy/images/docs/tutorials/chitubox-basic/manual/how-to-use-tolerance-compensation-on-chitubox/models-fit-well.gif"
+		}
+	/>
+</ImageContainer>
+
+You can see that this feature is working well.
+
+Last but not least, note that the model body size can be affected by your printing material, hardware, and the environment. So your tolerance settings may not be applicable if you use them with a different printer or resin.
+
+This is how you can use tolerance compensation on CHITUBOX. If you still have questions about this feature, contact us at <Link href="mailto:support@chitubox.com">support@chitubox.com</Link>, and we will be happy to help you.

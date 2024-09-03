@@ -1,0 +1,120 @@
+export const metadata = {
+	title: "Settings to Improve Your SLA/DLP/LCD 3D Print Quality",
+	authors: [{ name: "CHITUBOX Team" }],
+	releaseDate: "2022-04-06",
+	description:
+		"The quality of 3D printing has a lot to do with equipment, materials and slices",
+	keywords: ["Tricks & Tips"],
+	openGraph: {
+		images: [
+			"/en/academy/images/docs/advanced/settings-to-improve-your-sladlplcd-3d-print-quality/cover.png",
+		],
+	},
+};
+
+# Settings to Improve Your SLA/DLP/LCD 3D Print Quality
+
+Stereolithography (SLA/DLP/LCD) 3D printing is one of the most popular 3D printing technologies which can create prototypes with very high quality, fine features (thin walls, sharp corners, etc.) and complex geometric shapes. Although this technology has so many advantages, the 3D models may still be very rough if you are not familiar with slicing, printing skills, etc.
+
+In fact, the quality of 3D printing has a lot to do with the equipment, materials and slicer. We can improve the quality of 3D printing by just adjusting the following settings.
+
+## Layer Height (mm)
+
+As the name implies, layer height is the exact height of each cured layer. Layer thickness not only affects the speed (printing time), but aslo the quality of each print. The number of layers required to create an object determines the printing speed and thus the printing time required. The thinner the layer thickness, the longer it takes to make a 3D printed object of a given height. While relatively, with a thinner layer height you will increase the quality of the print, leading to a smoother surface and more detail visible in the Z-direction (height) of the model.
+
+<ImageContainer footnote="Left: 100µm layer thickness   Right: 50µm layer thickness">
+	<AntdImage
+		alt="hemisphere with different layer heights"
+		src={
+			"/en/academy/images/docs/advanced/settings-to-improve-your-sladlplcd-3d-print-quality/hemisphere-with-different-layer-heights.png"
+		}
+	/>
+</ImageContainer>
+
+In general, according to technological differences of 3D printers, they generate different layer heights as some may generate lower layer height than others. Layer Thickness is measured in fractions of a millimeter (mm), and are often given in microns(µm). Generally, the min layer height of SLA/DLP/LCD 3D printers is 25 µm (0.025mm) layer height and the max is 100 µm (0.1mm) layer height. You can adjust this setting in your slicing tool like CHITUBOX based on the actual situation of your SLA/DLP/LCD 3D printer. If you have no idea how to choose the right one, there’s a tried-and-true technique to just start your trying with the layer height of 50 μm (0.05mm).
+
+<ImageContainer>
+	<AntdImage
+		alt="layer height"
+		src={
+			"/en/academy/images/docs/advanced/settings-to-improve-your-sladlplcd-3d-print-quality/layer-height.png"
+		}
+	/>
+</ImageContainer>
+
+## Exposure Time (s)
+
+The print quality for each 3D resin is also affected by the light power and the curing or exposure time. Exposure Time is the amount of time that the light source will expose each layer during printing. Different SLA/DLP/LCD 3D printers have different cure times for resins.
+
+<ImageContainer>
+	<AntdImage
+		alt="exposure time"
+		src={
+			"/en/academy/images/docs/advanced/settings-to-improve-your-sladlplcd-3d-print-quality/exposure-time.png"
+		}
+	/>
+</ImageContainer>
+
+The default is 6 seconds in CHITUBOX. For most resins, this exposure time is enough. And this setting can be modified based on the actual situations.
+
+As for bottom exposure time, it's recommended to make it around 8-12 times longer than your normal layer cure time. The default bottom exposure time is 50 seconds in CHITUBOX. Increase the exposure time if the raft won't stick to the build plate. Generally, the longer the bottom exposure time, the more tightly the raft will stick to the build plate.
+
+Related Article:
+
+<Link href="https://www.chitubox.com/en/article/academy/advanced/pre-/54">
+	All You Need to Know about Failed Printing
+</Link>
+
+## Lift Speed (mm/min)
+
+Lift speed refers to the speed at which the build plate is lifted from the resin vat between layers. If the lift speed is too fast, the model will be broken and the support may also be damaged due to the tug of war between the build plate and the FEP film in the bottom of the vat. But if reducing the speed too much, the printing time will be increased. The default lift speed is 65 mm/min in CHITUBOX. When modifying this setting, you should take both print quality and print time into account.
+
+## Part Orientation
+
+By orientating the part in different directions, there is a significant difference in the print quality. Sudden changes of the model structure from a small cross-section to a large cross section area will lead to severe volumetric changes of layers as the volume of 3D resin in each layer highly affects the shrinkage of each cured layer.
+
+<ImageContainer>
+	<AntdImage
+		alt="different orientations"
+		src={
+			"/en/academy/images/docs/advanced/settings-to-improve-your-sladlplcd-3d-print-quality/different-orientations.png"
+		}
+	/>
+</ImageContainer>
+
+Sudden changes of the model structure not only affects model integrity, but it will also typically result in visible surface lines. Besides, part orientation impacts surface quality due to the process of slicing and printing the part in increments in the Z direction.
+
+We make an experiment about the relationship between part orientation and surface quality. If you want to know more, please click: <Link href="https://www.chitubox.com/en/article/academy/advanced/faq/53">How Angles of Models Affect Surface Quality</Link>
+
+## Anti-Aliasing
+
+Aliasing is the staircase effect that occurs when diagonal or curved lines or borders are drawn on raster displays consisting of square or rectangular pixels. Antialiasing is to blur edge pixels thereby smoothing the surface of printed objects.
+
+CHITUBOX has built-in anti-aliasing feature. After special algorithm processing, it makes the model more smooth and exquisite and effectively reduces edge aliasing.
+
+<ImageContainer>
+	<AntdImage
+		alt="disable/enable antialiasing"
+		src={
+			"/en/academy/images/docs/advanced/settings-to-improve-your-sladlplcd-3d-print-quality/disableenable-antialiasing.png"
+		}
+	/>
+</ImageContainer>
+
+There are more than those factors to improve the printing quality. The support structures alone can be demonstrated with several chapters. However, by simply adjusting these settings in CHITUBOX, the resin 3D printing quality can be more or less improved so that the output of photocuring (SLA/DLP/LCD) 3D printing can be as high-quality as it should be.
+
+## Use Image Blur
+
+CHITUBOX Image Blur function can provide a smoother surface effect on the surface details and dimensional accuracy of the printed parts.
+
+<ImageComparison
+	img1Src={
+		"/en/academy/images/docs/advanced/settings-to-improve-your-sladlplcd-3d-print-quality/blur-level-2.png"
+	}
+	text1={"Level-2 Image Blur"}
+	img2Src={
+		"/en/academy/images/docs/advanced/settings-to-improve-your-sladlplcd-3d-print-quality/blur-level-8.png"
+	}
+	text2={"Level-8 Image Blur"}
+	height={350}
+/>
