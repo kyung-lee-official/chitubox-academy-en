@@ -48,4 +48,4 @@ jobs:
                       cd /var/www/html/
                       docker load -i i-www.chitubox.com-en.tar
                       rm i-www.chitubox.com-en.tar
-                      docker run --name c-www.chitubox.com-en -p 3000:3000 -d i-www.chitubox.com-en
+                      docker run --name c-www.chitubox.com-en -p 3005:3000 -d i-www.chitubox.com-en
