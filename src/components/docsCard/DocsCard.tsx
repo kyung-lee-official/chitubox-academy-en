@@ -54,7 +54,7 @@ const Thumbnail = (props: any) => {
 	const fetchImage = useCallback(async () => {
 		if (ogImage) {
 			try {
-				console.log("ogImage", ogImage);
+				console.log("ogImage", ogImage.replace("/en/academy", ""));
 				const res = await axios.get(ogImage, {
 					responseType: "arraybuffer",
 				});
