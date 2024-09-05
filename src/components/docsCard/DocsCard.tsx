@@ -7,7 +7,7 @@ import { ImageIcon } from "../icons/Icons";
 const Thumbnail = (props: any) => {
 	const { ogImage } = props;
 
-	const targetAspectRatio = useMemo(() => 16 / 9, []);
+	const targetAspectRatio = 16 / 9;
 
 	const containerRef = useRef<HTMLDivElement | null>(null);
 	const imgRef = useRef<HTMLImageElement | null>(null);
@@ -54,6 +54,7 @@ const Thumbnail = (props: any) => {
 	const fetchImage = useCallback(async () => {
 		if (ogImage) {
 			try {
+				console.log("ogImage", ogImage);
 				const res = await axios.get(ogImage, {
 					responseType: "arraybuffer",
 				});
@@ -61,7 +62,10 @@ const Thumbnail = (props: any) => {
 					`data:${res.headers["content-type"]};base64,` +
 					Buffer.from(res.data, "binary").toString("base64");
 				setImageSrc(imageUrl);
-			} catch (error) {}
+				console.log("imageUrl", imageUrl);
+			} catch (error) {
+				console.error(error);
+			}
 		}
 	}, []);
 
