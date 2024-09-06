@@ -5,12 +5,9 @@ import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import {
-	DropdownMenu,
-	DropdownMenuItem,
-	DropdownSubmenuLi,
-	LanguageDropdownMenu,
-} from "./Dropdown";
+import { DropdownMenu, LanguageDropdownMenu } from "./Dropdown";
+import { MobileNavItem } from "./MobileNavItem";
+import Link from "next/link";
 
 const MobileNavigator = () => {
 	const isXl = useMediaQuery({ query: MediaQuery.xl });
@@ -22,12 +19,12 @@ const MobileNavigator = () => {
 		},
 	});
 
-	const mainProductQuery = useQuery<any, AxiosError>({
-		queryKey: ["mainProductQuery"],
-		queryFn: async () => {
-			return await getMainstreamProduct();
-		},
-	});
+	// const mainProductQuery = useQuery<any, AxiosError>({
+	// 	queryKey: ["mainProductQuery"],
+	// 	queryFn: async () => {
+	// 		return await getMainstreamProduct();
+	// 	},
+	// });
 
 	const [showMobileDropDownMenu, setShowMobileDropDownMenu] =
 		useState<boolean>(false);
@@ -52,195 +49,31 @@ const MobileNavigator = () => {
 				</div>
 				{showMobileDropDownMenu && dynamicDataQuery.data && (
 					<DropdownMenu>
-						<DropdownMenuItem href="https://www.chitubox.com/en/index">
-							{
-								dynamicDataQuery.data?.layout.header
-									.topNavConfig[0].name
+						{dynamicDataQuery.data?.layout.header.topNavConfig.map(
+							(item: any, index: number) => {
+								return (
+									<MobileNavItem key={index} item={item} />
+								);
 							}
-						</DropdownMenuItem>
-						<DropdownMenuItem
-							submenu={
-								<ul className="flex flex-col my-1 gap-1">
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[1].dropdownNav[0]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[1].dropdownNav[1]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[1].dropdownNav[2]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[1].dropdownNav[3]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[1].dropdownNav[4]
-										}
-									/>
-								</ul>
-							}
+						)}
+						<Link
+							href={"https://cc.chitubox.com/customer/cart"}
+							className="flex justify-start items-center min-h-[44px] px-8
+							text-gray-400 font-semibold 
+							bg-black
+							border-b-[1px] border-gray-600"
 						>
-							<div className="relative">
-								<div>
-									{
-										dynamicDataQuery.data?.layout.header
-											.topNavConfig[1].name
-									}
-								</div>
-								{mainProductQuery.isSuccess && (
-									<div
-										className="absolute flex justify-center items-center w-20 h-[18px] top-[-20px] left-1/3 px-1
-										text-white text-xs font-semibold
-										bg-[#F50057] rounded-tl-full rounded-r-full"
-									>
-										{mainProductQuery.data.data
-											.softwareId === "17842"
-											? "Pro " +
-											  mainProductQuery.data.data.versionId.toUpperCase()
-											: mainProductQuery.data.data
-													.softwareId === "17839"
-											? "Basic " +
-											  mainProductQuery.data.data.versionId.toUpperCase()
-											: ""}
-									</div>
-								)}
-							</div>
-						</DropdownMenuItem>
-						<DropdownMenuItem
-							submenu={
-								<ul className="flex flex-col my-1 gap-1">
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[2].dropdownNav[0]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[2].dropdownNav[1]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[2].dropdownNav[2]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[2].dropdownNav[3]
-										}
-									/>
-								</ul>
-							}
-						>
-							<div>
-								{
-									dynamicDataQuery.data?.layout.header
-										.topNavConfig[2].name
-								}
-							</div>
-						</DropdownMenuItem>
-						<DropdownMenuItem
-							submenu={
-								<ul className="flex flex-col my-1 gap-1">
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[3].dropdownNav[0]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[3].dropdownNav[1]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[3].dropdownNav[2]
-										}
-									/>
-								</ul>
-							}
-						>
-							<div>
-								{
-									dynamicDataQuery.data?.layout.header
-										.topNavConfig[3].name
-								}
-							</div>
-						</DropdownMenuItem>
-						<DropdownMenuItem
-							submenu={
-								<ul className="flex flex-col my-1 gap-1">
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[4].dropdownNav[0]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[4].dropdownNav[1]
-										}
-									/>
-									<DropdownSubmenuLi
-										data={
-											dynamicDataQuery.data?.layout.header
-												.topNavConfig[4].dropdownNav[2]
-										}
-									/>
-								</ul>
-							}
-						>
-							<div>
-								{
-									dynamicDataQuery.data?.layout.header
-										.topNavConfig[4].name
-								}
-							</div>
-						</DropdownMenuItem>
-						<DropdownMenuItem href="https://www.chitubox.com/en/page/sdk">
-							{
-								dynamicDataQuery.data?.layout.header
-									.topNavConfig[5].name
-							}
-						</DropdownMenuItem>
-						<DropdownMenuItem href="https://www.chitubox.com/en/news">
-							<div className="relative">
-								<div>
-									{
-										dynamicDataQuery.data?.layout.header
-											.topNavConfig[6].name
-									}
-								</div>
-							</div>
-						</DropdownMenuItem>
-						<DropdownMenuItem href="https://cc.chitubox.com/customer/cart">
 							CART
-						</DropdownMenuItem>
-						<DropdownMenuItem href="https://cc.chitubox.com/">
+						</Link>
+						<Link
+							href={"https://cc.chitubox.com"}
+							className="flex justify-start items-center min-h-[44px] px-8
+							text-gray-400 font-semibold 
+							bg-black
+							border-b-[1px] border-gray-600"
+						>
 							USER CENTER
-						</DropdownMenuItem>
+						</Link>
 						<LanguageDropdownMenu />
 					</DropdownMenu>
 				)}
