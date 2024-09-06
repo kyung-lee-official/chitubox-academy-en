@@ -90,6 +90,7 @@ export const NavItem = (props: { item: any }) => {
 							<div className="absolute left-8 right-8 top-20 pt-[10px]">
 								<div
 									className="flex justify-center items-center h-[250px] p-10 gap-10
+									text-[rgba(232,230,227,0.8)] hover:text-[rgba(232,230,227,1)]
 									bg-[#061216]
 									rounded-[16px] shadow-[0px_16px_16px_rgba(0,0,0,0.4)]"
 								>
