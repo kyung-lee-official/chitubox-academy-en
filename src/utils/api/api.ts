@@ -50,7 +50,7 @@ export const getDynamicDataQuery = async (): Promise<any> => {
 	const dateString = new Date().toISOString().split("T")[0];
 	if (process.env.NEXT_PUBLIC_ENV === "PROD") {
 		res = await axios.get(
-			`https://fis.cbd-3d.com/chitubox/chitubox/public/render/language/website-en.json?${dateString}`
+			`https://fis.cbd-3d.com/chitubox/chitubox/public/render/language/website-en.json?t=${dateString}&s=${location.host}`
 		);
 	} else {
 		/* Test */
