@@ -3,6 +3,7 @@ import { Placeholder } from "../Placeholder";
 import { useEffect, useRef, useState } from "react";
 import { DropdownCard } from "../DropdownCard";
 import MainProduct from "./MainProduct";
+import { processHref } from "@/utils/data/data";
 
 export const NavItem = (props: { item: any }) => {
 	const { item } = props;
@@ -33,7 +34,7 @@ export const NavItem = (props: { item: any }) => {
 			return (
 				<>
 					<Link
-						href={item.href}
+						href={processHref(item.href)}
 						className="relative flex-[0_0_84px] flex justify-center items-center h-full
 						px-[10px]
 						2xl:px-[42px]
@@ -51,7 +52,7 @@ export const NavItem = (props: { item: any }) => {
 			return (
 				<>
 					<Link
-						href={item.href}
+						href={processHref(item.href)}
 						className="flex-[0_0_84px] flex justify-center items-center h-full px-[10px]
 						text-[rgba(232,230,227,0.8)] hover:text-[rgba(232,230,227,1)]
 						active:text-[rgba(50,163,244,1)]
